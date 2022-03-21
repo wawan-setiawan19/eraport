@@ -30,6 +30,7 @@ $md=mysqli_fetch_array(mysqli_query($con,"SELECT * FROM mapeltq where id_mapeltq
                   <th width="10%">Juz/Jilid</th>
                   <th width="15%">Surat</th>
                   <th width="10%">Ayat/Hal</th>
+                  <td>Nilai PETA</td>
                   <th>Deskripsi</th>
                 </tr>
                 </thead>
@@ -42,6 +43,7 @@ $md=mysqli_fetch_array(mysqli_query($con,"SELECT * FROM mapeltq where id_mapeltq
                   <td><input name="juz[]" class="form-control" value="<?php echo $akh['juz']; ?>"></td>
                   <td><input name="surat[]" class="form-control" value="<?php echo $akh['surat']; ?>"></td>
                   <td><input name="ayat[]" class="form-control" value="<?php echo $akh['ayat']; ?>"></td>
+                  <td><input name="nilai_peta[]" class="form-control" value="<?php echo $akh['nilai_peta']; ?>"></td>
                   <td><textarea name="deskripsi[]" class="form-control"><?php echo $akh['deskripsi']; ?></textarea></td>
                 </tr>
 <?php $vr++; } ?>

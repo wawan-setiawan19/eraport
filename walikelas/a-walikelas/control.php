@@ -156,15 +156,15 @@ else{
   }
 //nilai nilaitq
   else if($akh==md5('inputnilaitq')){
-    $at=date('Y-m-d');$juz = $_POST['juz']; $surat = $_POST['surat']; $ayat = $_POST['ayat']; $deskripsi = $_POST['deskripsi'];
+    $at=date('Y-m-d');$juz = $_POST['juz']; $surat = $_POST['surat']; $ayat = $_POST['ayat']; $deskripsi = $_POST['deskripsi']; $nilai_peta = $_POST['nilai_peta'];
     $lsis=mysqli_query($con,"SELECT * FROM siswa where c_kelas='$_POST[c_kelas]' order by nama asc "); $no=0; while($hlsis=mysqli_fetch_array($lsis)){
       //disini inputnya
         if($juz[$no]==0){}else{
           $cekada=mysqli_fetch_array(mysqli_query($con,"SELECT * FROM nilaitq where c_ta='$c_ta' and c_siswa='$hlsis[c_siswa]' and c_kelas='$_POST[c_kelas]' and id_mapeltq='$_POST[id_mapeltq]' "));
           if($cekada==NULL){
-            $input=mysqli_query($con,"INSERT INTO nilaitq set c_ta='$c_ta',c_siswa='$hlsis[c_siswa]',c_kelas='$_POST[c_kelas]',id_mapeltq='$_POST[id_mapeltq]',juz='$juz[$no]',surat='$surat[$no]',ayat='$ayat[$no]',deskripsi='$deskripsi[$no]',at='$at' ");
+            $input=mysqli_query($con,"INSERT INTO nilaitq set c_ta='$c_ta',c_siswa='$hlsis[c_siswa]',c_kelas='$_POST[c_kelas]',id_mapeltq='$_POST[id_mapeltq]',juz='$juz[$no]',surat='$surat[$no]',ayat='$ayat[$no]',deskripsi='$deskripsi[$no]', nilai_peta='$nilai_peta[$no]', at='$at' ");
           }else{
-             $edit=mysqli_query($con,"UPDATE nilaitq set c_ta='$c_ta',c_siswa='$hlsis[c_siswa]',c_kelas='$_POST[c_kelas]',id_mapeltq='$_POST[id_mapeltq]',juz='$juz[$no]',surat='$surat[$no]',ayat='$ayat[$no]',deskripsi='$deskripsi[$no]',at='$at' WHERE id_nilaitq='$cekada[id_nilaitq]' ");
+             $edit=mysqli_query($con,"UPDATE nilaitq set c_ta='$c_ta',c_siswa='$hlsis[c_siswa]',c_kelas='$_POST[c_kelas]',id_mapeltq='$_POST[id_mapeltq]',juz='$juz[$no]',surat='$surat[$no]',ayat='$ayat[$no]',deskripsi='$deskripsi[$no]', nilai_peta='$nilai_peta[$no]', at='$at' WHERE id_nilaitq='$cekada[id_nilaitq]' ");
           }
         }
         $no++;
@@ -433,7 +433,9 @@ else{
       $nilaiasli=[];
       $nilaiakhir=[];
     }
-    require_once("../../php/dompdf/dompdf_config.inc.php"); require '../../php/function.php';
+    // require_once("../../php/dompdf/dompdf_config.inc.php");
+    require_once("../../php/dompdf/autoload.inc.php");
+    require '../../php/function.php';
     require 'print/printrapotsiswa.php';
     $dompdf = new DOMPDF();
     // $customPaper = array(0,0,800,1000);
@@ -448,7 +450,9 @@ else{
   }
   else if($akh==md5('printrapotmidsiswa')){
     $sis= mysqli_query($con,"SELECT * FROM siswa where c_kelas='$_GET[q]' and c_siswa='$_GET[r]' order by nama asc limit 1"); foreach($sis as $hsis);
-    require_once("../../php/dompdf/dompdf_config.inc.php"); require '../../php/function.php';
+    // require_once("../../php/dompdf/dompdf_config.inc.php");
+    require_once("../../php/dompdf/autoload.inc.php");
+    require '../../php/function.php';
     require 'print/printrapotmidsiswa.php';
     $dompdf = new DOMPDF();
     // $customPaper = array(0,0,800,1000);

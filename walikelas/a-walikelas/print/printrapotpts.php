@@ -76,6 +76,7 @@ $predikat_sosial = predikat_label($komsi['nilaisos']);
     <style>
       .nilai,
       .nilai tr,
+      .nilai tr th,
       .nilai tr td {
         border: 1px solid black;
       }
@@ -152,7 +153,7 @@ $predikat_sosial = predikat_label($komsi['nilaisos']);
   $content.='
   </table>';
   $content.='
-      <b style="font-size: 13px;">B. Hasil Penilaian Mata Pelajaran Diniah</b><br>
+      <br><b style="font-size: 13px;">B. Hasil Penilaian Mata Pelajaran Diniah</b><br>
       <table style="font-size:12px; width: 100%" class="nilai">
     <tr class="text-center" style="font-weight: bold">
     <td width="2%">NO</td>
@@ -184,12 +185,12 @@ $predikat_sosial = predikat_label($komsi['nilaisos']);
     <b style="font-size: 12px;">C. Tahfidzul Quran</b><br>
     <table style="font-size:12px; width: 100%" class="nilai">
       <tr class="text-center">
-        <td width="2%">No</td>
-        <td width="40%">Capaian</td>
-        <td width="10%">Juz/Jilid</td>
-        <td width="10%">Surat</td>
-        <td width="10%">Ayat/Hal</td>
-        <td>Nilai PETA</td>
+        <th width="2%">No</th>
+        <th width="40%">Capaian</th>
+        <th width="10%">Juz/Jilid</th>
+        <th width="10%">Surat</th>
+        <th width="10%">Ayat/Hal</th>
+        <th>Nilai PETA</th>
       </tr>
       ';
       $md=mysqli_query($con,"SELECT * FROM mapeltq_kelas left join mapeltq on (mapeltq.id_mapeltq=mapeltq_kelas.id_mapeltq) where c_kelas='$kel[c_kelas]' order by nama_mapeltq asc "); $vr=1;
@@ -208,7 +209,7 @@ $predikat_sosial = predikat_label($komsi['nilaisos']);
       $vr++; }
     $content.='
   </table>
-  <table>
+  <table style="font-size:12px; width: 100%; margin-top: 30px" cellpadding="5">
     <tr>
       <td width="25%">
         <div>Mengetahui</div>

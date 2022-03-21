@@ -19,16 +19,35 @@ $deskripsi_sikap= mysqli_fetch_array(mysqli_query($con,"SELECT * FROM deskripsi_
   $csis=mysqli_fetch_array(mysqli_query($con,"SELECT * FROM walimurid where c_siswa='$hsis[c_siswa]' "));
 // $content = $_GET[q];
   $content .='
-    <style>
-        .tabel-nilai{
-            border-collapse: collapse;
-            border : 1px solid black;
-        }
-        
-        .tabel-nilai th, .tabel-nilai td{
-            border : 1px solid black;
-        }
-    </style>
+  <style>
+  .nilai,
+  .nilai tr,
+  .nilai tr td {
+    border: 1px solid black;
+  }
+  .nilai{
+    border-collapse: collapse;
+  }
+  td{
+    padding: 5px 10px;
+  }
+
+    .identitas{
+        margin-bottom: 15px;
+        border: none;
+    }
+    
+    .identitas td {
+        padding: 3px 0;
+    }
+    .title-sikap{
+        margin-top:20px;
+    }
+    .nama{
+        font-weight : bold;
+        text-decoration: underline;
+    }
+</style
   ';
   $content .= '<title>Rapot '.$hsis['nama'].'</title>';
   $content.='
@@ -76,7 +95,7 @@ $deskripsi_sikap= mysqli_fetch_array(mysqli_query($con,"SELECT * FROM deskripsi_
       </tr>
     </table>
     <b style="font-size: 13px;">A. Sikap</b><br>
-    <table class="tabel-nilai" style="font-size:12px; width: 100%" cellpadding="5">
+    <table class="nilai" style="font-size:12px; width: 100%">
         <tr class="text-center">
           <td width="2%">No</td><td width="30%">Sikap</td><td width="10.5%">Predikat</td><td>Deskripsi</td>
         </tr>
@@ -92,7 +111,7 @@ $deskripsi_sikap= mysqli_fetch_array(mysqli_query($con,"SELECT * FROM deskripsi_
     </table>
     <br>
     <b style="font-size: 13px;">B. Pengetahuan dan Keterampilan</b><br>
-    <table class="tabel-nilai" style="font-size:12px; width: 100%;" cellpadding="5">
+    <table class="nilai" style="font-size:12px; width: 100%;">
       <tr class="text-center">
         <td width="2%" rowspan="2">NO</td>
         <td rowspan="2" width="30%">Mata Pelajaran</td>
@@ -146,7 +165,7 @@ $deskripsi_sikap= mysqli_fetch_array(mysqli_query($con,"SELECT * FROM deskripsi_
   </table> 
   </div>
   <div style="page-break-after: always;">
-    <table border="1" style="font-size:12px; width: 100%" cellpadding="5">
+    <table class="nilai" style="font-size:12px; width: 100%">
       <tr class="text-center">
         <td width="2%" rowspan="2">NO</td>
         <td rowspan="2" width="30%">Mata Pelajaran</td>
@@ -202,7 +221,7 @@ $deskripsi_sikap= mysqli_fetch_array(mysqli_query($con,"SELECT * FROM deskripsi_
   $content.='
   <div style="page-break-after: always;">
     <b style="font-size: 13px;">C. Madrasah Diniyah</b><br>
-    <table border="1" style="font-size:11px; width: 100%" cellpadding="5">
+    <table style="font-size: 12px" class="nilai">
       <tr class="text-center">
         <td width="2%" rowspan="2">No</td>
         <td rowspan="2" width="20%">Kitab</td>
@@ -240,7 +259,7 @@ $deskripsi_sikap= mysqli_fetch_array(mysqli_query($con,"SELECT * FROM deskripsi_
   $content.='
   </table>
     <b style="font-size: 12px;">D. Tahfidzul Quran</b><br>
-    <table border="1" style="font-size:11px; width: 100%" cellpadding="5">
+    <table style="font-size: 12px" class="nilai">
       <tr class="text-center">
         <td width="2%">No</td>
         <td width="20%">Capaian</td>
@@ -268,7 +287,7 @@ $deskripsi_sikap= mysqli_fetch_array(mysqli_query($con,"SELECT * FROM deskripsi_
   </table>';
   $content.='
   <b style="font-size: 12px;">E. Ekstra Kurikuler</b><br>
-    <table border="1" style="font-size:11px; width: 100%" cellpadding="5">';
+    <table style="font-size: 12px" class="nilai">';
       $extra= mysqli_query($con,"SELECT * FROM nilaiextra left join extra on(nilaiextra.c_extra=extra.c_extra) where c_siswa='$smk[c_siswa]' and c_kelas='$kel[c_kelas]' and c_ta='$c_ta'");
       if($extra==null){
         $content.= '<tr><td>-</td></tr>';
@@ -291,7 +310,7 @@ $deskripsi_sikap= mysqli_fetch_array(mysqli_query($con,"SELECT * FROM deskripsi_
     $setra= mysqli_fetch_array(mysqli_query($con,"SELECT * FROM rapotsiswa where c_ta='$c_ta' and c_siswa='$smk[c_siswa]' and c_kelas='$kel[c_kelas]' limit 1 "));
     $content.='
     <b style="font-size: 12px;">F. Ketidakhadiran</b><br>
-    <table border="1" style="font-size:11px; width: 100%;" cellpadding="5">
+    <table style="font-size: 12px;" class="nilai" width="100%">
       <tr class="text-center">
         <td width="31.5%">SAKIT (S)</td><td width="33%">IZIN (I)</td><td width="33%">ALFA (A)</td>
       </tr>
@@ -307,7 +326,7 @@ $deskripsi_sikap= mysqli_fetch_array(mysqli_query($con,"SELECT * FROM deskripsi_
     </div>';
     $content.='
     <b style="font-size: 12px;">G. Catatan Wali Kelas</b><br>
-    <table border="1" style="font-size:11px; width: 100%;" cellpadding="5">
+    <table style="font-size: 12px;" class="nilai" width="100%">
       <tr>';
       if($setra==NULL){
         $content.= '<td valign="top">-</td>';
@@ -319,7 +338,7 @@ $deskripsi_sikap= mysqli_fetch_array(mysqli_query($con,"SELECT * FROM deskripsi_
     </table>';
     $content.='
     <b style="font-size: 12px;">H. Catatan Wali Santri/Wali</b><br>
-    <table border="1" style="font-size:11px; width: 100%;" cellpadding="5">
+    <table style="font-size: 12px;" class="nilai" width="100%">
       <tr>
         <td><br><br><br><br><br><br></td> 
       </tr>
