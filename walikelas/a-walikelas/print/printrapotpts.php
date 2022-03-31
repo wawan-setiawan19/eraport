@@ -1,4 +1,5 @@
 <?php
+include '../../../php/config.php';
 
 function nilairaport($nilaitugas, $nilaiuh, $nilaimid, $nilaiuas){
   $nilaiakhirraport = ((($nilaitugas+$nilaiuh)/2)*0.5)+($nilaimid*0.25)+($nilaiuas*0.25);
@@ -52,7 +53,7 @@ function header_identitas($kelas, $semester, $nama, $tahun, $nis, $nisn){
     ';
 }
 
-$titimangsa = 'Cirebon, 24 Desember 2021';
+$titimangsa = 'Cirebon, 1 April 2022';
 
 if($ata['semester']=='1'){$sem= '1 (Satu)';}else if($ata['semester']=='2'){$sem= '2 (Dua)';}
 $kel=mysqli_fetch_array(mysqli_query($con,"SELECT *,(SELECT c_guru from walikelas where c_kelas='$_GET[r]') as c_guru,(SELECT ttdwalikelas from walikelas where c_kelas='$_GET[r]') as ttdwalikelas FROM kelas where c_kelas='$_GET[r]' "),MYSQLI_ASSOC);
@@ -112,7 +113,7 @@ $predikat_sosial = predikat_label($komsi['nilaisos']);
     
     <br>
     <!-- table identitas -->
-    '.header_identitas($hsis['kelas_dapodik'], $sem, $hsis['nama'], $ata['tahun'], $hsis['nisn'], $hsis['nis']).'
+    '.header_identitas($kel['kelas'], $sem, $hsis['nama'], $ata['tahun'], $hsis['nisn'], $hsis['nis']).'
     <p class="text-center mt-3" style="font-weight: bold">LAPORAN HASIL PENILAIAN TENGAH SEMESTER</p>
     <b style="font-size: 13px; text-transform: uppercase;">A. Hasil Penilaian Mata Pelajaran Umum</b><br>
     <table style="font-size:12px; width: 100%" class="nilai">
@@ -225,7 +226,7 @@ $predikat_sosial = predikat_label($komsi['nilaisos']);
             <div>Mengetahui</div>
             <div>Wali Grade</div>
             <div style="height: 70px">
-              <img src="../../media/ttd/'.$kel['ttdwaligrade'].'" width="100" height="50">
+              <img src=".'.$base.'media/ttd/'.$kel['ttdwaligrade'].'" width="100" height="50">
             </div>
             <div class="nama">'.$kel['waligrade'].'</div>
           </td>
@@ -235,7 +236,7 @@ $predikat_sosial = predikat_label($komsi['nilaisos']);
             <div>'.$titimangsa.'</div>
             <div>Wali Kelas,</div>
             <div style="height: 70px">
-            <img src="../../media/ttd/'.$kel['ttdwalikelas'].'" width="100" height="50">
+            <img src="'.$base.'media/ttd/'.$kel['ttdwalikelas'].'" width="100" height="50">
             </div>
             <div class="nama">'.$guru['nama'].'</div>
             <div>NIP.</div>
@@ -249,7 +250,8 @@ $predikat_sosial = predikat_label($komsi['nilaisos']);
                 <div>Mengetahui</div>
                 <div>Kepala Sekolah</div>
                 <div style="height: 70px">
-                <img src="../../media/ttd/kepsek.jpg" width="100" height="60"></div>
+                    <img src="'.$base.'media/ttd/kepsek.jpg" height="70" alt="'.$base.'media/ttd/kepsek.jpg">
+                  </div>
                 <div class="nama">FIKRI RIZKY PRATAMA, S.Pd.</div>
                 <div>NIP.</div>
             </td>
@@ -257,5 +259,5 @@ $predikat_sosial = predikat_label($komsi['nilaisos']);
     </table>
   ';
   
-    $footer = $hsis['kelas_dapodik'].'  |  '.strtoupper($hsis['nama']).'  |  '.$hsis['nisn'];
+    $footer = $kel['kelas'].'  |  '.strtoupper($hsis['nama']).'  |  '.$hsis['nisn'];
 ?>

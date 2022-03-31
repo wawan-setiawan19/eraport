@@ -1,6 +1,7 @@
 <?php
 
 use Dompdf\Dompdf;
+use Dompdf\Options;
 
 date_default_timezone_set('Asia/Jakarta'); session_start();
 if(empty($_SESSION['c_walikelas'])){header('location:../../');}
@@ -504,6 +505,10 @@ else{
     $orientation = 'Portrait';
     $dompdf->set_paper($paper,$orientation);
     $dompdf->load_html($content);
+    $options = new Options();
+    $options->setIsRemoteEnabled(true);
+    $dompdf->setOptions($options);
+    $dompdf->output();
     $dompdf->render();
     $canvas = $dompdf->get_canvas();
     $font = $dompdf->getFontMetrics();
