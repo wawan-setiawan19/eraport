@@ -226,7 +226,7 @@ $predikat_sosial = predikat_label($komsi['nilaisos']);
             <div>Mengetahui</div>
             <div>Wali Grade</div>
             <div style="height: 70px">
-              <img src=".'.$base.'media/ttd/'.$kel['ttdwaligrade'].'" width="100" height="50">
+              <img src="'.$base.'media/ttd/'.$kel['ttdwaligrade'].'" width="100" height="50">
             </div>
             <div class="nama">'.$kel['waligrade'].'</div>
           </td>
