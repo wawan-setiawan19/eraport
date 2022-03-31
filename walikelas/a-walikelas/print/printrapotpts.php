@@ -224,7 +224,9 @@ $predikat_sosial = predikat_label($komsi['nilaisos']);
           <td width="25%">
             <div>Mengetahui</div>
             <div>Wali Grade</div>
-            <div style="height: 70px"></div>
+            <div style="height: 70px">
+              <img src="../../media/ttd/'.$kel['ttdwaligrade'].'" width="100" height="50">
+            </div>
             <div class="nama">'.$kel['waligrade'].'</div>
           </td>
           <td width="25%"></td>
@@ -232,7 +234,9 @@ $predikat_sosial = predikat_label($komsi['nilaisos']);
           <td>
             <div>'.$titimangsa.'</div>
             <div>Wali Kelas,</div>
-            <div style="height: 70px"></div>
+            <div style="height: 70px">
+            <img src="../../media/ttd/'.$kel['ttdwalikelas'].'" width="100" height="50">
+            </div>
             <div class="nama">'.$guru['nama'].'</div>
             <div>NIP.</div>
           </td>
@@ -244,7 +248,8 @@ $predikat_sosial = predikat_label($komsi['nilaisos']);
             <td>
                 <div>Mengetahui</div>
                 <div>Kepala Sekolah</div>
-                <div style="height: 70px"></div>
+                <div style="height: 70px">
+                <img src="../../media/ttd/kepsek.jpg" width="100" height="60"></div>
                 <div class="nama">FIKRI RIZKY PRATAMA, S.Pd.</div>
                 <div>NIP.</div>
             </td>
