@@ -95,6 +95,9 @@
     else if($act=='nilaimapelmd'){
       require 'view/mapelmd.php';
     }
+    else if($act=='nilaiijazah'){
+      require 'view/nilaiijazah.php';
+    }
     else if($act=='nilaimapeltq'){
       require 'view/mapeltq.php';
     }

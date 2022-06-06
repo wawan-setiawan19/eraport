@@ -272,6 +272,7 @@ oncontextmenu="return false">
             <li ><a href="<?php echo $basewa; ?>exportpersiswa"><i class="glyphicon glyphicon-star-empty"></i> Export Nilai Per-Siswa</a></li>
             <li ><a href="<?php echo $basewa; ?>exportpermapel"><i class="glyphicon glyphicon-star-empty"></i> Export Nilai Per-Mapel</a></li>
             <li ><a href="<?php echo $basewa; ?>exporttamra"><i class="glyphicon glyphicon-star-empty"></i> Export Tambahan Rapot</a></li>
+            <li ><a href="<?php echo $basewa; ?>nilaiijazah"><i class="glyphicon glyphicon-star-empty"></i> Nilai Ijazah</a></li>
           </ul>
         </li>
         <li class="treeview">

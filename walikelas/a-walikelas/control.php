@@ -148,6 +148,25 @@ else{
     $_SESSION['pesan']='selesai';
     header('location:../../nilaimapelmd/'.$_POST['id_mapelmd'].'?');
   }
+  else if($akh==md5('inputnilaiijazah')){
+    $nilai = $_POST['nilai'];
+    $lsis=mysqli_query($con,"SELECT * FROM siswa where c_kelas='$_POST[c_kelas]' order by nama asc "); $no=0; while($hlsis=mysqli_fetch_array($lsis)){
+      //disini inputnya
+        if($nilai[$no]==0){}else{
+          $cekada=mysqli_fetch_array(mysqli_query($con,"SELECT * FROM nilai_ijazah where c_ta='$c_ta' and c_siswa='$hlsis[c_siswa]' and c_kelas='$_POST[c_kelas]'"));
+          if($cekada==NULL){
+            $input=mysqli_query($con,"INSERT INTO nilai_ijazah set c_ta='$c_ta',c_siswa='$hlsis[c_siswa]',c_kelas='$_POST[c_kelas]',nilai='$nilai[$no]'");
+          }else{
+             $edit=mysqli_query($con,"UPDATE nilai_ijazah set c_ta='$c_ta',c_siswa='$hlsis[c_siswa]',c_kelas='$_POST[c_kelas]',nilai='$nilai[$no]' WHERE id_nilaiijazah='$cekada[id_nilaiijazah]' ");
+          }
+        }
+        $no++;
+    }
+    session_start();
+    $_SESSION['pesan']='selesai';
+    // header('location:'.$basewa);
+    header('location:'.$basewa.'/nilaiijazah');
+  }
   else if($akh==md5('setelulangmd')){
     $c_kelas=$_GET['q']; $id_mapelmd=$_GET['r'];
     $setel=mysqli_query($con,"DELETE from nilaimd where c_ta='$c_ta' and c_kelas='$c_kelas' and id_mapelmd='$id_mapelmd' ");

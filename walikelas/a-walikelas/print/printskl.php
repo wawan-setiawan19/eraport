@@ -113,7 +113,7 @@ $predikat_sosial = predikat_label($komsi['nilaisos']);
    ';
    $content .= '
         <br>
-        <table style="font-size:12pt;">
+        <table style="font-size: 12px;">
           <tr>
             <td> Nama Lengkap </td>
             <td> : </td>
@@ -122,7 +122,7 @@ $predikat_sosial = predikat_label($komsi['nilaisos']);
           <tr>
             <td> Tempat, Tanggal Lahir </td>
             <td> : </td>
-            
+            <td>'.$hsis['temlahir'].', '.tgl($hsis['tanglahir']).'</td>
             <td>Tangerang, 26 September 2006</td>
           <tr>
           <tr>
