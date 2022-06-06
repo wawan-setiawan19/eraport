@@ -86,6 +86,7 @@ $predikat_sosial = predikat_label($komsi['nilaisos']);
         }
         p {
           font-size: 12pt;
+          text-align: justify;
         }
     </style
   
@@ -138,11 +139,11 @@ $predikat_sosial = predikat_label($komsi['nilaisos']);
         </table>
         <p>
         Berdasarkan Hasil Rapat Dewan Guru tentang Penentuan Kelulusan serta  mengacu kepada Peraturan Sekertaris Jenderal Kementerian
-        Pendidikan, Kebudayaan, Riset, dan Teknologi NO. 3 tahun 2022 tentang Perubahan Atas Peraturan Sekretaris Jenderal Kementerian
-        Pendidikan, Kebudayaan, Riset, dan Teknologi NO. 1 tahun 2022, dengan ini peserta didik tersebut di atas dinyatakan :
+        Pendidikan, Kebudayaan, Riset, dan Teknologi No. 3 tahun 2022 tentang Perubahan Atas Peraturan Sekretaris Jenderal Kementerian
+        Pendidikan, Kebudayaan, Riset, dan Teknologi No. 1 tahun 2022, dengan ini peserta didik tersebut di atas dinyatakan :
         </p>
         <center style="font-weight: bold; font-size: 20pt;">LULUS</center>
-        <p>dari sekolah menengah pertama dengan rata-rata Ujian Sekolah (Nilai Ijazah) =	<b>'.$nilaiijazah['nilai'].',00</b><br>
+        <p>Dari sekolah menengah pertama dengan rata-rata Ujian Sekolah (Nilai Ijazah) =	<b>'.$nilaiijazah['nilai'].',00. </b><br>
         Demikian surat keterangan ini kami buat agar yang berkepentingan dapat mengetahuinya. </p>
 
         <table style="font-size:12pt; width: 100%;">
