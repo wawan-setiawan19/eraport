@@ -140,7 +140,7 @@ $predikat_sosial = predikat_label($komsi['nilaisos']);
                 <div>Cirebon, 6 Juni 2022</div>
                 <div>Kepala Sekolah</div>
                 <div style="height: 70px">
-                  <img src="../../media/ttd/kepsek.jpg" width="100" height="60">
+                  <img src="'.$base.'media/ttd/kepsek.jpg" height="70" alt="'.$base.'media/ttd/kepsek.jpg">
                 </div>
                 <div class="nama">FIKRI RIZKY PRATAMA, S.Pd.</div>
                 <div>NIP.</div>
