@@ -16,23 +16,23 @@ function predikat_label($nilai){
     return $predikat;
 }
 
-function header_identitas($kelas, $semester, $nama, $tahun, $nis, $nisn){
-    return '<table style="width:100%; border-bottom: 1px solid #000;">
-    <tr>
-      <td width="10%" class="text-left"><img src="../kop/logokop.png" alt="" style="width:200px;"></td>
-      <td valign="top" style="padding-left: 10px;">
-        <span style="color : #f39c12; font-size: 15px;">YAYASAN AL BAHJAH</span><br>
-        <span style="color : #2ecc71; font-size: 18px; font-weight: bold;">SMP ISLAM QURANI AL BAHJAH</span><br>
-        <span style="font-size: 12px; font-weight: bold">TERAKREDITASI A</span><br>
-        <span style="font-size: 12px; font-weight: bold">NSS : 20.2.02.17.12.010 / NPSN : 69893500</span><br>
-        <span style="font-size: 11px;">Jl. Pangeran Cakrabuana No. 179  Blok Gudang Air Sendang - Sumber - Cirebon 45611 </span><br>
-        <span style="font-size: 11px;">Telp. 0231-8820592 Website :  https://www.smpiqualbahjah1.sch.id</span><br>
-      </td>
-    </tr>
-  </table>
-  <center>421.3/141/SKL/SMPIQu-AB/VI/2022</center>
-    ';
-}
+// function header_identitas($kelas, $semester, $nama, $tahun, $nis, $nisn){
+//     return '<table style="width:100%; border-bottom: 1px solid #000;">
+//     <tr>
+//       <td width="10%" class="text-left"><img src="'.$base.'/kop/logokop.png" alt="" style="width:200px;"></td>
+//       <td valign="top" style="padding-left: 10px;">
+//         <span style="color : #f39c12; font-size: 15px;">YAYASAN AL BAHJAH</span><br>
+//         <span style="color : #2ecc71; font-size: 18px; font-weight: bold;">SMP ISLAM QURANI AL BAHJAH</span><br>
+//         <span style="font-size: 12px; font-weight: bold">TERAKREDITASI A</span><br>
+//         <span style="font-size: 12px; font-weight: bold">NSS : 20.2.02.17.12.010 / NPSN : 69893500</span><br>
+//         <span style="font-size: 11px;">Jl. Pangeran Cakrabuana No. 179  Blok Gudang Air Sendang - Sumber - Cirebon 45611 </span><br>
+//         <span style="font-size: 11px;">Telp. 0231-8820592 Website :  https://www.smpiqualbahjah1.sch.id</span><br>
+//       </td>
+//     </tr>
+//   </table>
+//   <center>421.3/141/SKL/SMPIQu-AB/VI/2022</center>
+//     ';
+// }
 
 $titimangsa = 'Cirebon, 24 Desember 2021';
 
@@ -90,7 +90,21 @@ $predikat_sosial = predikat_label($komsi['nilaisos']);
   
   </footer>
   <body style="font-family: verdana, arial, sans-serif;">';
-   $content .= ''.header_identitas($hsis['kelas_dapodik'], $sem, $hsis['nama'], $ata['tahun'], $hsis['nisn'], $hsis['nis']).'';
+   $content .= '<table style="width:100%; border-bottom: 1px solid #000;">
+   <tr>
+     <td width="10%" class="text-left"><img src="'.$basewa.'/kop/logokop.png" alt="" style="width:200px;"></td>
+     <td valign="top" style="padding-left: 10px;">
+       <span style="color : #f39c12; font-size: 15px;">YAYASAN AL BAHJAH</span><br>
+       <span style="color : #2ecc71; font-size: 18px; font-weight: bold;">SMP ISLAM QURANI AL BAHJAH</span><br>
+       <span style="font-size: 12px; font-weight: bold">TERAKREDITASI A</span><br>
+       <span style="font-size: 12px; font-weight: bold">NSS : 20.2.02.17.12.010 / NPSN : 69893500</span><br>
+       <span style="font-size: 11px;">Jl. Pangeran Cakrabuana No. 179  Blok Gudang Air Sendang - Sumber - Cirebon 45611 </span><br>
+       <span style="font-size: 11px;">Telp. 0231-8820592 Website :  https://www.smpiqualbahjah1.sch.id</span><br>
+     </td>
+   </tr>
+ </table>
+ <br>
+ <center>No. 421.3/141/SKL/SMPIQu-AB/VI/2022</center>';
    $content .= '<br>';
    $content .= '
         <p>
@@ -140,7 +154,7 @@ $predikat_sosial = predikat_label($komsi['nilaisos']);
                 <div>Cirebon, 6 Juni 2022</div>
                 <div>Kepala Sekolah</div>
                 <div style="height: 70px">
-                  <img src="'.$base.'media/ttd/kepsek.jpg" height="70" alt="'.$base.'media/ttd/kepsek.jpg">
+                  <img src="'.$base.'media/ttd/kepsek.jpg" height="120" alt="'.$base.'media/ttd/kepsek.jpg">
                 </div>
                 <div class="nama">FIKRI RIZKY PRATAMA, S.Pd.</div>
                 <div>NIP.</div>

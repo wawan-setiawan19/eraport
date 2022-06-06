@@ -505,6 +505,10 @@ else{
     $orientation = 'Portrait';
     $dompdf->set_paper($paper,$orientation);
     $dompdf->load_html($content);
+    $options = new Options();
+    $options->setIsRemoteEnabled(true);
+    $dompdf->setOptions($options);
+    $dompdf->output();
     $dompdf->render();
     $canvas = $dompdf->get_canvas();
     $font = $dompdf->getFontMetrics();
