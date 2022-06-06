@@ -285,6 +285,7 @@ oncontextmenu="return false">
             <li ><a href="<?php echo $basewa; ?>printrapot"><i class="glyphicon glyphicon-star-empty"></i> Print Rapot Format Pondok (ttd auto)</a></li>
             <li ><a href="<?php echo $basewa; ?>printrapotdapodik"><i class="glyphicon glyphicon-star-empty"></i> Print Rapot Format Dapodik</a></li>
             <li ><a href="<?php echo $basewa; ?>printrapotpts"><i class="glyphicon glyphicon-star-empty"></i> Print Rapot PTS</a></li>
+            <li ><a href="<?php echo $basewa; ?>printskl"><i class="glyphicon glyphicon-star-empty"></i> Print SKL</a></li>
           </ul>
         </li>
         <li class="treeview">

@@ -162,7 +162,7 @@ oncontextmenu="return false">
         <li class="header">MENU</li>
         <li><a href="<?php echo $basewam; ?>"><i class="glyphicon glyphicon-file"></i> <span>Nilai Siswa</span></a></li>
         <li><a href="<?php echo $basewam; ?>guru"><i class="glyphicon glyphicon-user"></i> <span>Guru</span></a></li>
-        <!--<li><a href="<?php echo $basewam; ?>nilaisikap"><i class="fa fa"></i> <span>Nilai Sikap</a</span>></li>-->
+        <li><a href="<?php echo $basewam; ?>nilaisikap"><i class="fa fa-print"></i> <span>Cetak Surat Keterangan Lulus</span></a></li>
         <li><a href="<?php echo $basewam; ?>nilaiextra"><i class="fa fa-gg"></i> <span>Extrakurikuler</span></a></li>
         <li><a href="<?php echo $basewam; ?>prestasi"><i class="fa fa-asterisk"></i> <span>Prestasi Siswa</span></a></li>
         <!-- <li><a href="<?php echo $basewam; ?>pkl"><i class="fa fa-building-o"></i> <span>PKL Siswa</span></a></li> -->
