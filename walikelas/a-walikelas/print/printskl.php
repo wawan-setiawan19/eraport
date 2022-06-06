@@ -135,11 +135,6 @@ $predikat_sosial = predikat_label($komsi['nilaisos']);
             <td> : </td>
             <td>'.$hsis['nisn'].'</td>
           <tr>
-          <tr>
-            <td> Nomor Induk Siswa Nasional </td>
-            <td> : </td>
-            <td>'.$hsis['nis'].'</td>
-          <tr>
         </table>
         <p>
         Berdasarkan Hasil Rapat Dewan Guru tentang Penentuan Kelulusan serta  mengacu kepada Surat Edaran Mendikbud Nomor 1 Tahun 2021 tentang Peniadaan Ujian Nasional dan Ujian Kesetaraan serta Pelaksanaan Ujian Sekolah dalam Masa Darurat Penyebaran Corona Virus Disease (COVID-19), dengan ini peserta didik tersebut di atas dinyatakan :
