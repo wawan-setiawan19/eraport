@@ -113,7 +113,7 @@ $predikat_sosial = predikat_label($komsi['nilaisos']);
    ';
    $content .= '
         <br>
-        <table>
+        <table style="font-size:12pt;">
           <tr>
             <td> Nama Lengkap </td>
             <td> : </td>
@@ -122,7 +122,8 @@ $predikat_sosial = predikat_label($komsi['nilaisos']);
           <tr>
             <td> Tempat, Tanggal Lahir </td>
             <td> : </td>
-            <td>'.$hsis['temlahir'].', '.tgl($hsis['tanglahir']).'</td>
+            
+            <td>Tangerang, 26 September 2006</td>
           <tr>
           <tr>
             <td> Nama Orangtua </td>
@@ -144,7 +145,7 @@ $predikat_sosial = predikat_label($komsi['nilaisos']);
         Berdasarkan Hasil Rapat Dewan Guru tentang Penentuan Kelulusan serta  mengacu kepada Surat Edaran Mendikbud Nomor 1 Tahun 2021 tentang Peniadaan Ujian Nasional dan Ujian Kesetaraan serta Pelaksanaan Ujian Sekolah dalam Masa Darurat Penyebaran Corona Virus Disease (COVID-19), dengan ini peserta didik tersebut di atas dinyatakan :
         </p>
         <center style="font-weight: bold; font-size: 20pt;">LULUS</center>
-        <p>dari sekolah menengah pertama dengan rata-rata Ujian Sekolah (Nilai Ijazah) =	NILAI RATA-RATA <br>
+        <p>dari sekolah menengah pertama dengan rata-rata Ujian Sekolah (Nilai Ijazah) =	86,0 <br>
         Demikian surat keterangan ini kami buat agar yang berkepentingan dapat mengetahuinya. </p>
 
         <table style="font-size:12pt; width: 100%;">
