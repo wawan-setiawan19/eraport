@@ -221,7 +221,7 @@ $deskripsi_sikap= mysqli_fetch_array(mysqli_query($con,"SELECT * FROM deskripsi_
   $content.='
   <div style="page-break-after: always;">
     <b style="font-size: 13px;">C. Madrasah Diniyah</b><br>
-    <table style="font-size: 12px" class="nilai">
+    <table style="font-size: 12px" class="nilai" width="100%">
       <tr class="text-center">
         <td width="2%" rowspan="2">No</td>
         <td rowspan="2" width="20%">Kitab</td>
@@ -259,7 +259,7 @@ $deskripsi_sikap= mysqli_fetch_array(mysqli_query($con,"SELECT * FROM deskripsi_
   $content.='
   </table>
     <b style="font-size: 12px;">D. Tahfidzul Quran</b><br>
-    <table style="font-size: 12px" class="nilai">
+    <table style="font-size: 12px" class="nilai"  width="100%">
       <tr class="text-center">
         <td width="2%">No</td>
         <td width="20%">Capaian</td>
@@ -287,7 +287,7 @@ $deskripsi_sikap= mysqli_fetch_array(mysqli_query($con,"SELECT * FROM deskripsi_
   </table>';
   $content.='
   <b style="font-size: 12px;">E. Ekstra Kurikuler</b><br>
-    <table style="font-size: 12px" class="nilai">';
+    <table style="font-size: 12px" class="nilai" width="100%">';
       $extra= mysqli_query($con,"SELECT * FROM nilaiextra left join extra on(nilaiextra.c_extra=extra.c_extra) where c_siswa='$smk[c_siswa]' and c_kelas='$kel[c_kelas]' and c_ta='$c_ta'");
       if($extra==null){
         $content.= '<tr><td>-</td></tr>';
@@ -304,6 +304,9 @@ $deskripsi_sikap= mysqli_fetch_array(mysqli_query($con,"SELECT * FROM deskripsi_
             <td class="text-center">'.$no.'</td><td>'.$hextra['extra'].'</td><td class="text-center">'.$hextra['nilai'].'</td><td>'.$hextra['deskripsi'].'</td>
           </tr>';
         $no++; }
+        if ($no < 2) {
+          $content.='<tr><td>-</td><td>-</td><td>-</td><td>-</td></tr>';
+        }
       }
     $content.= '
     </table>';
