@@ -57,7 +57,7 @@ $deskripsi_sikap= mysqli_fetch_array(mysqli_query($con,"SELECT * FROM deskripsi_
     $content.='<h3 class="text-center"></h3>
     <table style="width:100%; border-bottom: 1px solid #000;">
       <tr>
-        <td width="10%" class="text-left"><img src="../kop/logokop.png" alt="" style="width:200px;"></td>
+        <td width="10%" class="text-left"><img src="'.$basewa.'/kop/logokop.png" alt="tes" style="width:200px;"></td>
         <td valign="top" style="padding-left: 10px;">
           <span style="color : #f39c12; font-size: 15px;">YAYASAN AL BAHJAH</span><br>
           <span style="color : #2ecc71; font-size: 18px; font-weight: bold;">SMP ISLAM QURANI AL BAHJAH</span><br>
@@ -398,21 +398,21 @@ $deskripsi_sikap= mysqli_fetch_array(mysqli_query($con,"SELECT * FROM deskripsi_
         <td valign="top" width="35%" class="text-center">
           Wali Grade
           <br>
-          <img src="../../media/ttd/'.$kel['ttdwaligrade'].'" width="100" height="50">
+          <img src="'.$base.'/media/ttd/'.$kel['ttdwaligrade'].'" width="100" height="50">
           <br>`
           <u><b>'.$kel['waligrade'].'</b></u>
         </td>
         <td valign="top" width="30%" class="text-center">
           Murokib/ah
           <br>
-          <img src="../../media/ttd/'.$kel['ttdmurokib'].'" width="100" height="50">
+          <img src="'.$base.'/media/ttd/'.$kel['ttdmurokib'].'" width="100" height="50">
           <br>
           <u><b>'.$kel['murokib'].'</b></u>
         </td>
         <td valign="top" width="35%" class="text-center">
           Wali Kelas
           <br>
-          <img src="../../media/ttd/'.$kel['ttdwalikelas'].'" width="100" height="50">
+          <img src="'.$base.'/media/ttd/'.$kel['ttdwalikelas'].'" width="100" height="50">
           <br>
           <u><b>'.$guru['nama'].'</b></u>
         </td>
@@ -424,7 +424,7 @@ $deskripsi_sikap= mysqli_fetch_array(mysqli_query($con,"SELECT * FROM deskripsi_
           <br>
           Kepala SMP Islam Qurani Al Bahjah
           <br>
-          <img src="../../media/ttd/kepsek.jpg" width="100" height="60">
+          <img src="'.$base.'/media/ttd/kepsek.jpg" width="100" height="60">
           <br>
           <u><b>Fikri Rizky Pratama, S.Pd.</b></u>
         </td>
@@ -435,7 +435,7 @@ $deskripsi_sikap= mysqli_fetch_array(mysqli_query($con,"SELECT * FROM deskripsi_
           <br>
           Kepala Pondok Al Bahjah
           <br>
-          <img src="../../media/ttd/ketuapondok.jpg" width="100" height="60">
+          <img src="'.$base.'/media/ttd/ketuapondok.jpg" width="100" height="60">
           <br>
           <u><b>Muhammad Subhan, Lc.</b></u>
         </td>

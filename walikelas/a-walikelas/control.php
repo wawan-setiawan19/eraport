@@ -464,6 +464,10 @@ else{
     $orientation = 'Portrait';
     $dompdf->set_paper($paper,$orientation);
     $dompdf->load_html($content);
+    $options = new Options();
+    $options->setIsRemoteEnabled(true);
+    $dompdf->setOptions($options);
+    $dompdf->output();
     $dompdf->render();
     $dompdf->stream('Rapot '.$hsis['nama'].'.pdf',array("Attachment"=>0));
     // echo $content;
@@ -481,6 +485,9 @@ else{
     $orientation = 'Portrait';
     $dompdf->set_paper($paper,$orientation);
     $dompdf->load_html($content);
+    $options->setIsRemoteEnabled(true);
+    $dompdf->setOptions($options);
+    $dompdf->output();
     $dompdf->render();
     $dompdf->stream('Rapot MID '.$hsis['nama'].'.pdf',array("Attachment"=>0));
   }
@@ -498,6 +505,9 @@ else{
     $orientation = 'Portrait';
     $dompdf->set_paper($paper,$orientation);
     $dompdf->load_html($content);
+    $options->setIsRemoteEnabled(true);
+    $dompdf->setOptions($options);
+    $dompdf->output();
     $dompdf->render();
     $canvas = $dompdf->get_canvas();
     $font = $dompdf->getFontMetrics();
