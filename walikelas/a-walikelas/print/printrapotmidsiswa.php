@@ -54,7 +54,7 @@ $deskripsi_sikap= mysqli_fetch_array(mysqli_query($con,"SELECT * FROM deskripsi_
     $content.='<h3 class="text-center"></h3>
     <table style="width:100%; border-bottom: 1px solid #000;">
       <tr>
-        <td width="10%" class="text-left"><img src="../kop/logokop.png" alt="" style="width:200px;"></td>
+        <td width="10%" class="text-left"><img src="'.$basewa.'/kop/logokop.png" alt="" style="width:200px;"></td>
         <td valign="top" style="padding-left: 10px;">
           <span style="color : #f39c12; font-size: 15px;">YAYASAN AL BAHJAH</span><br>
           <span style="color : #2ecc71; font-size: 18px; font-weight: bold;">SMP ISLAM QURANI AL BAHJAH</span><br>
