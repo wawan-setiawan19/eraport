@@ -52,7 +52,7 @@ function header_identitas($kelas, $semester, $nama, $tahun, $nis, $nisn){
     ';
 }
 
-$titimangsa = 'Cirebon, 24 Desember 2021';
+$titimangsa = 'Cirebon, 15 Juni 2022';
 
 if($ata['semester']=='1'){$sem= '1 (Satu)';}else if($ata['semester']=='2'){$sem= '2 (Dua)';}
 $kel=mysqli_fetch_array(mysqli_query($con,"SELECT *,(SELECT c_guru from walikelas where c_kelas='$_GET[r]') as c_guru,(SELECT ttdwalikelas from walikelas where c_kelas='$_GET[r]') as ttdwalikelas FROM kelas where c_kelas='$_GET[r]' "),MYSQLI_ASSOC);

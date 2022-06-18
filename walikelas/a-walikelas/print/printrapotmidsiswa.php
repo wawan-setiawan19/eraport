@@ -367,7 +367,7 @@ $deskripsi_sikap= mysqli_fetch_array(mysqli_query($con,"SELECT * FROM deskripsi_
   $content .='
       <div >
         <!-- <p class="text-center" style="font-size: 12px;">Cirebon, '.tgl(date('d-m-Y')).'</p> -->
-        <p class="text-center" style="font-size: 12px;">Cirebon, 24 Desember 2021</p>
+        <p class="text-center" style="font-size: 12px;">Cirebon, 15 Juni 2022</p>
         <br><br>
         <table style="width:100%; font-size:13px;">
       <tr>
