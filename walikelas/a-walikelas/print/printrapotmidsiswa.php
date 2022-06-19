@@ -47,6 +47,9 @@ $deskripsi_sikap= mysqli_fetch_array(mysqli_query($con,"SELECT * FROM deskripsi_
         font-weight : bold;
         text-decoration: underline;
     }
+    table{
+      width: 100%;
+    }
 </style
   <body style="font-family: verdana, arial, sans-serif;">
     <div style="page-break-after: always; margin-top:-20px;">';
