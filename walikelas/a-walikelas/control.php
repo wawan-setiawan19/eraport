@@ -148,6 +148,24 @@ else{
     $_SESSION['pesan']='selesai';
     header('location:../../nilaimapelmd/'.$_POST['id_mapelmd'].'?');
   }
+  else if($akh==md5('inputdapodik')){
+    $at=date('Y-m-d');$nis = $_POST['nis']; $kelas_dapodik = $_POST['kelas_dapodik']; $walas_dapodik = $_POST['walas_dapodik'];
+    $lsis=mysqli_query($con,"SELECT * FROM siswa where c_kelas='$_POST[c_kelas]' order by nama asc "); $no=0; while($hlsis=mysqli_fetch_array($lsis)){
+      //disini inputnya
+        if($nis[$no]==0){}else{
+          $cekada=mysqli_fetch_array(mysqli_query($con,"SELECT * FROM siswa where c_siswa='$hlsis[c_siswa]' and c_kelas='$_POST[c_kelas]'"));
+          if($cekada==NULL){
+            $input=mysqli_query($con,"INSERT INTO siswa set c_siswa='$hlsis[c_siswa]',c_kelas='$_POST[c_kelas]',nis='$nis[$no]',kelas_dapodik='$kelas_dapodik[$no]',walas_dapodik='$walas_dapodik[$no]',at='$at' ");
+          }else{
+             $edit=mysqli_query($con,"UPDATE siswa set c_siswa='$hlsis[c_siswa]',c_kelas='$_POST[c_kelas]',nis='$nis[$no]',kelas_dapodik='$kelas_dapodik[$no]',walas_dapodik='$walas_dapodik[$no]',at='$at' WHERE c_siswa='$cekada[c_siswa]' ");
+          }
+        }
+        $no++;
+    }
+    session_start();
+    $_SESSION['pesan']='selesai';
+    header('location:'.$basewa.'settingdapodik/');
+  }
   else if($akh==md5('inputnilaiijazah')){
     $nilai = $_POST['nilai'];
     $lsis=mysqli_query($con,"SELECT * FROM siswa where c_kelas='$_POST[c_kelas]' order by nama asc "); $no=0; while($hlsis=mysqli_fetch_array($lsis)){
@@ -490,7 +508,7 @@ else{
     $dompdf->setOptions($options);
     $dompdf->output();
     $dompdf->render();
-    $dompdf->stream('Rapot MID '.$hsis['nama'].'.pdf',array("Attachment"=>0));
+    $dompdf->stream('Rapot Pondok '.$hsis['nama'].'.pdf',array("Attachment"=>0));
   }
   else if($akh==md5('printrapotdapodik')){
     $sis= mysqli_query($con,"SELECT * FROM siswa where c_kelas='$_GET[q]' and c_siswa='$_GET[r]' order by nama asc limit 1"); 

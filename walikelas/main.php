@@ -92,6 +92,9 @@
     else if($act=='kompetensisikap'){
       require 'view/kompetensisikap.php';
     }
+    else if($act=='settingdapodik'){
+      require 'view/settingdapodik.php';
+    }
     else if($act=='nilaimapelmd'){
       require 'view/mapelmd.php';
     }

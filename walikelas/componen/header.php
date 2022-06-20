@@ -298,7 +298,7 @@ oncontextmenu="return false">
             <li ><a href="<?php echo $basewa; ?>aspekfisik"><i class="fa fa-question"></i> Aspek Fisik</a></li>
             <li ><a href="<?php echo $basewa; ?>berattinggi"><i class="fa fa-question"></i> Tinggi & Berat Badan</a></li>
             <li ><a href="<?php echo $basewa; ?>kompetensisikap"><i class="fa fa-question"></i> Kompetensi Sikap</a></li>
-
+            <li ><a href="<?php echo $basewa; ?>settingdapodik"><i class="fa fa-question"></i> Setting Dapodik</a></li>
           </ul>
         </li>
       </ul>
