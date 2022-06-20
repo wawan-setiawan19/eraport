@@ -347,36 +347,7 @@ $deskripsi_sikap= mysqli_fetch_array(mysqli_query($con,"SELECT * FROM deskripsi_
       $content.='  
       </tr>
     </table>';
-    if($sem == 'Genap'){
-      $content .= '
-    <div style="border: 1px solid black; width:50%; padding-left:10px; padding-right: 20px; margin-bottom:10px;">
-      <b style="font-size: 12px">Keputusan:</b><br>
-      <p style ="font-size: 12px">
-        Berdasarkan pencapaian kompetensi pada semester ke-1 dan ke-2, peserta didik ditetapkan *) <br><br>';
-      $kelas = explode(" ",$kel['kelas']);
-      if($kelas[0] == 'IX'){
-        $content .='Lulus <br> <strike>Tidak Lulus </strike>';
-      }
-      $content .= 'naik ke kelas ';
-      if($kelas[0]=='VII'){
-        $content .= 'VIII (delapan)';
-      }else if($kelas[0]=='VIII'){
-        $content .= 'IX (sembilan)';
-      }
-      $content.= '<br> <strike>tinggal di kelas '.$kelas[0];
-      if($kelas[0]=='VII'){
-      $content .= ' (tujuh)';
-      }else if($kelas[0] == 'VIII'){
-        $content .= ' (delapan)';
-      }
-      $content .= '</strike>';
-      $content .='
-      <br><br>
-      *) coret yang tidak perlu
-          </p>
-        </div>
-      ';
-    }
+    
     $content.='
     <b style="font-size: 12px;">H. Catatan Wali Santri/Wali</b><br>
     <table style="font-size: 12px;" class="nilai" width=100%>
@@ -397,6 +368,36 @@ $deskripsi_sikap= mysqli_fetch_array(mysqli_query($con,"SELECT * FROM deskripsi_
       </tr>
     </table>';
   $content.='';
+  if($sem == 'Genap'){
+    $content .= '
+  <div style="border: 1px solid black; width:50%; padding-left:10px; padding-right: 20px; margin-bottom:10px;">
+    <b style="font-size: 12px">Keputusan:</b><br>
+    <p style ="font-size: 12px">
+      Berdasarkan pencapaian kompetensi pada semester ke-1 dan ke-2, peserta didik ditetapkan *) <br><br>';
+    $kelas = explode(" ",$kel['kelas']);
+    if($kelas[0] == 'IX'){
+      $content .='Lulus <br> <strike>Tidak Lulus </strike>';
+    }
+    $content .= 'naik ke kelas ';
+    if($kelas[0]=='VII'){
+      $content .= 'VIII (delapan)';
+    }else if($kelas[0]=='VIII'){
+      $content .= 'IX (sembilan)';
+    }
+    $content.= '<br> <strike>tinggal di kelas '.$kelas[0];
+    if($kelas[0]=='VII'){
+    $content .= ' (tujuh)';
+    }else if($kelas[0] == 'VIII'){
+      $content .= ' (delapan)';
+    }
+    $content .= '</strike>';
+    $content .='
+    <br><br>
+    *) coret yang tidak perlu
+        </p>
+      </div>
+    ';
+  }
   $content .='
       <div >
         <!-- <p class="text-center" style="font-size: 12px;">Cirebon, '.tgl(date('d-m-Y')).'</p> -->
