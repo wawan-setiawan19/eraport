@@ -354,7 +354,9 @@ $deskripsi_sikap= mysqli_fetch_array(mysqli_query($con,"SELECT * FROM deskripsi_
       <tr>
         <td><br><br><br><br><br><br></td> 
       </tr>
-    </table>';
+    </table>
+    <br><br>
+    ';
     if($sem == 'Genap'){
       $content .= '
     <div style="border: 1px solid black; width:50%; padding-left:10px; padding-right: 20px; margin-bottom:10px;">
