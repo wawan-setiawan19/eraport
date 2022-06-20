@@ -31,8 +31,9 @@
                 <tbody>
 <?php $smk=mysqli_query($con,"SELECT * FROM siswa  where c_kelas='$kel[c_kelas]' order by nama asc "); $vr=1;while($akh=mysqli_fetch_array($smk)){ ?>                
                 <tr>
+                  <input type="hidden" autocomplete="off" name="c_siswa[]" class="form-control" value="<?= $akh['c_siswa']?>">
                   <td><?php echo $vr; ?></td>
-                  <td><?php echo $akh['nisn']; ?></td>
+                  <td><input autocomplete="off" name="nisn[]" class="form-control" value="<?= $akh['nisn']?>"></td>
                   <td><input autocomplete="off" name="nis[]" class="form-control" value="<?= $akh['nis']?>"></td>
                   <td><?php echo $akh['nama']; ?></td>
                   <td><input autocomplete="off" name="kelas_dapodik[]" class="form-control" value="<?= $akh['kelas_dapodik']?>"></td>
