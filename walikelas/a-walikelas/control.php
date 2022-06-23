@@ -151,7 +151,6 @@ else{
   else if($akh==md5('inputdapodik')){
     $at=date('Y-m-d');
     $nis = $_POST['nis'];
-    $c_siswa = $_POST['c_siswa'];
     $nisn = $_POST['nisn'];
     $kelas_dapodik = $_POST['kelas_dapodik'];
     $walas_dapodik = $_POST['walas_dapodik'];
@@ -159,20 +158,17 @@ else{
     $no=0;
     while($hlsis=mysqli_fetch_array($lsis)){
       //disini inputnya
-        if($nis[$no]==0){echo 'Gagal';}else{
-          $cekada=mysqli_fetch_array(mysqli_query($con,"SELECT * FROM siswa where c_siswa='$c_siswa[$no]' and c_kelas='$_POST[c_kelas]'"));
+          $cekada=mysqli_fetch_array(mysqli_query($con,"SELECT * FROM siswa where c_siswa='$hlsis[c_siswa]' and c_kelas='$_POST[c_kelas]' "));
           if($cekada==NULL){
-            // $input=mysqli_query($con,"INSERT INTO siswa set c_siswa='$hlsis[c_siswa]',c_kelas='$_POST[c_kelas]',nisn='$nisn[$no]',nis='$nis[$no]',kelas_dapodik='$kelas_dapodik[$no]',walas_dapodik='$walas_dapodik[$no]',at='$at' ");
+            $input=mysqli_query($con,"INSERT INTO siswa set c_siswa='$hlsis[c_siswa]',c_kelas='$_POST[c_kelas]',nisn='$nisn[$no]',nis='$nis[$no]',kelas_dapodik='$kelas_dapodik[$no]',walas_dapodik='$walas_dapodik[$no]' ");
           }else{
-              $edit=mysqli_query($con,"UPDATE INTO siswa set kelas_dapodik='$kelas_dapodik[$no]',at='$at' ");
-            //  $edit=mysqli_query($con,"UPDATE siswa set c_siswa='$c_siswa[$no]',c_kelas='$_POST[c_kelas]',nisn='$nisn[$no]',nis='$nis[$no]',kelas_dapodik='$kelas_dapodik[$no]',walas_dapodik='$walas_dapodik[$no]',at='$at' WHERE c_siswa='$cekada[c_siswa]' ");
+             $edit=mysqli_query($con,"UPDATE siswa set c_siswa='$hlsis[c_siswa]',c_kelas='$_POST[c_kelas]',nisn='$nisn[$no]',nis='$nis[$no]',kelas_dapodik='$kelas_dapodik[$no]',walas_dapodik='$walas_dapodik[$no]' WHERE c_siswa='$cekada[c_siswa]' ");
           }
-        }
         $no++;
     }
     session_start();
     $_SESSION['pesan']='selesai';
-    header('location:'.$basewa.'settingdapodik/');
+    header('location:../../settingdapodik');
   }
   else if($akh==md5('inputnilaiijazah')){
     $nilai = $_POST['nilai'];
