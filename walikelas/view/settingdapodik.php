@@ -21,8 +21,8 @@
                 <thead>
                 <tr>
                   <th width="5%">NO</th>
-                  <th width="15%">NISN</th>
                   <th width="15%">NIS</th>
+                  <th width="15%">NISN</th>
                   <th>NAMA</th>
                   <th width="10%">KELAS DAPODIK</th>
                   <th>WALI KELAS DAPODIK</th>
