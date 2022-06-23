@@ -1,7 +1,7 @@
 <?php
 
 function nilairaport($nilaitugas, $nilaiuh, $nilaimid, $nilaiuas){
-  $nilaiakhirraport = ((($nilaitugas+$nilaiuh)/2)*0.35)+($nilaimid*0.15)+($nilaiuas*0.15);
+  $nilaiakhirraport = (($nilaitugas*0.35)+($nilaiuh*0.35)+($nilaimid*0.15)+($nilaiuas*0.15));
   return $nilaiakhirraport;
 }
 
