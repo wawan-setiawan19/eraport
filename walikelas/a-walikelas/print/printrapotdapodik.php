@@ -368,14 +368,36 @@ $predikat_sosial = predikat_label($komsi['nilaisos']);
       $content.='  
       </tr>
     </table>';
+    $angkatan = explode(" ",$kel['kelas']);
+    if ($angkatan[0] == 'IX') {
+      $keputusan="LULUS";
+    }elseif ($angkatan[0] == 'VIII') {
+      $keputusan="NAIK KE KELAS : IX (SEMBILAN)";
+      $hasil_semester="pada semester 1 dan 2";
+    }else{
+      $keputusan="NAIK KE KELAS : VIII (DELAPAN)";
+      $hasil_semester="pada semester 1 dan 2";
+    };
     $content.='
     <br><b style="font-size: 12px;">H. TANGGAPAN ORANGTUA/WALI</b><br>
     <table class="nilai" style="font-size:11px; width: 100%;">
       <tr>
         <td><br><br><br></td> 
       </tr>
-    </table>
-    <table style="font-size:12px; width: 100%; margin-top: 30px" cellpadding="5">
+    </table>';
+    
+    if ($ata['semester']=='2') {
+      $content.='<table class="nilai" style="font-size:12px; width: 100%; margin-top: 20px;">
+        <tr>
+          <td>
+            <b>Keputusan:</b><br>
+            Berdasarkan hasil yang dicapai,'.$hasil_semester.' Peserta didik ditetapkan :<br>
+            <b>'.$keputusan.'</b>
+          </td>
+        <tr>
+      </table>';
+    }
+    $content.='<table style="font-size:12px; width: 100%; margin-top: 30px" cellpadding="5">
         <tr>
           <td width="25%">
             <div>Mengetahui</div>
