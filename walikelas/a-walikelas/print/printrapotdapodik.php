@@ -389,7 +389,7 @@ $predikat_sosial = predikat_label($komsi['nilaisos']);
     </div>';
     
     if ($ata['semester']=='2') {
-      if ($kelas[0]=='VII'|| $kelas[0]=='VIII') {
+      if ($kelas[0]!='IX') {
         $content.='<div style="page-break-after: always;">';
       }
       $content.='<table class="nilai" style="font-size:12px; width: 100%; margin-top: 20px;">
@@ -433,7 +433,7 @@ $predikat_sosial = predikat_label($komsi['nilaisos']);
             </td>
         </tr>
     </table>';
-    if ($kelas[0]=='VII'||$kelas[0]=='VIII') {
+    if ($kelas[0]!='IX') {
       $content.='</div>';
     }
     $footer = $hsis['kelas_dapodik'].'  |  '.strtoupper($hsis['nama']).'  |  '.$hsis['nisn'];
