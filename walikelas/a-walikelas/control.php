@@ -162,7 +162,7 @@ else{
           if($cekada==NULL){
             $input=mysqli_query($con,"INSERT INTO siswa set c_siswa='$hlsis[c_siswa]',c_kelas='$_POST[c_kelas]',nisn='$nisn[$no]',nis='$nis[$no]',kelas_dapodik='$kelas_dapodik[$no]',walas_dapodik='$walas_dapodik[$no]' ");
           }else{
-             $edit=mysqli_query($con,"UPDATE siswa set c_siswa='$hlsis[c_siswa]',c_kelas='$_POST[c_kelas]',nisn='$nisn[$no]',nis='$nis[$no]',kelas_dapodik='$kelas_dapodik[$no]',walas_dapodik='$walas_dapodik[$no]' WHERE c_siswa='$cekada[c_siswa]' ");
+             $edit=mysqli_query($con,"UPDATE siswa set nisn='$nisn[$no]',nis='$nis[$no]',kelas_dapodik='$kelas_dapodik[$no]',walas_dapodik='$walas_dapodik[$no]' WHERE c_siswa='$cekada[c_siswa]' ");
           }
         $no++;
     }

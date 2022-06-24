@@ -52,8 +52,6 @@ function header_identitas($kelas, $semester, $nama, $tahun, $nis, $nisn){
     ';
 }
 
-$titimangsa = 'Cirebon, 15 Juni 2022';
-
 if($ata['semester']=='1'){$sem= '1 (Satu)';}else if($ata['semester']=='2'){$sem= '2 (Dua)';}
 $kel=mysqli_fetch_array(mysqli_query($con,"SELECT *,(SELECT c_guru from walikelas where c_kelas='$_GET[r]') as c_guru,(SELECT ttdwalikelas from walikelas where c_kelas='$_GET[r]') as ttdwalikelas FROM kelas where c_kelas='$_GET[r]' "),MYSQLI_ASSOC);
 $guru= mysqli_fetch_array(mysqli_query($con,"SELECT * from guru where c_guru='$kel[c_guru]' "),MYSQLI_ASSOC);
@@ -371,12 +369,15 @@ $predikat_sosial = predikat_label($komsi['nilaisos']);
     $angkatan = explode(" ",$kel['kelas']);
     if ($angkatan[0] == 'IX') {
       $keputusan="LULUS";
+      $titimangsa = 'Cirebon, 15 Juni 2022';
     }elseif ($angkatan[0] == 'VIII') {
       $keputusan="NAIK KE KELAS : IX (SEMBILAN)";
       $hasil_semester="pada semester 1 dan 2";
+      $titimangsa = 'Cirebon, 24 Juni 2022';
     }else{
       $keputusan="NAIK KE KELAS : VIII (DELAPAN)";
       $hasil_semester="pada semester 1 dan 2";
+      $titimangsa = 'Cirebon, 24 Juni 2022';
     };
     $content.='
     <br><b style="font-size: 12px;">H. TANGGAPAN ORANGTUA/WALI</b><br>
@@ -387,6 +388,9 @@ $predikat_sosial = predikat_label($komsi['nilaisos']);
     </table>';
     
     if ($ata['semester']=='2') {
+      if ($kelas[0]=='VII'|| $kelas[0]=='VIII') {
+        $content.='<div style="page-break-after: always;">';
+      }
       $content.='<table class="nilai" style="font-size:12px; width: 100%; margin-top: 20px;">
         <tr>
           <td>
@@ -427,7 +431,9 @@ $predikat_sosial = predikat_label($komsi['nilaisos']);
                 <div>NIP.</div>
             </td>
         </tr>
-    </table>
-    </div>';
+    </table>';
+    if ($kelas[0]=='VII'||$kelas[0]=='VIII') {
+      $content.='</div></div>';
+    }
     $footer = $hsis['kelas_dapodik'].'  |  '.strtoupper($hsis['nama']).'  |  '.$hsis['nisn'];
 ?>
