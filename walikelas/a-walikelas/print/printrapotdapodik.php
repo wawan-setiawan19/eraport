@@ -106,6 +106,21 @@ $predikat_sosial = predikat_label($komsi['nilaisos']);
    <p>'.$PAGE_NUM.'</p>
     <div style="page-break-after: always">';
     //<center><img class="text-center" src="../kop/kop2.png" style="width:80%;height:100px;"></center>
+    $angkatan = explode(" ",$hsis['kelas_dapodik']);
+    if ($angkatan[0] == 'IX') {
+      $keputusan="LULUS";
+      $titimangsa = 'Cirebon, 15 Juni 2022';
+    }elseif ($angkatan[0] == 'VIII') {
+      $keputusan="NAIK KE KELAS : IX (SEMBILAN)";
+      $hasil_semester="pada semester 1 dan 2";
+      $titimangsa = 'Cirebon, 24 Juni 2022';
+      $break = '</div><div>';
+    }else{
+      $keputusan="NAIK KE KELAS : VIII (DELAPAN)";
+      $hasil_semester="pada semester 1 dan 2";
+      $titimangsa = 'Cirebon, 24 Juni 2022';
+      $break = '</div><div>';
+    };
     $content.='
     
     <br>
@@ -366,21 +381,7 @@ $predikat_sosial = predikat_label($komsi['nilaisos']);
       $content.='  
       </tr>
     </table>';
-    $angkatan = explode(" ",$kel['kelas']);
-    if ($angkatan[0] == 'IX') {
-      $keputusan="LULUS";
-      $titimangsa = 'Cirebon, 15 Juni 2022';
-    }elseif ($angkatan[0] == 'VIII') {
-      $keputusan="NAIK KE KELAS : IX (SEMBILAN)";
-      $hasil_semester="pada semester 1 dan 2";
-      $titimangsa = 'Cirebon, 24 Juni 2022';
-      $break = '</div><div>';
-    }else{
-      $keputusan="NAIK KE KELAS : VIII (DELAPAN)";
-      $hasil_semester="pada semester 1 dan 2";
-      $titimangsa = 'Cirebon, 24 Juni 2022';
-      $break = '</div><div>';
-    };
+    
     $content.='
     <b style="font-size: 12px;">H. TANGGAPAN ORANGTUA/WALI</b><br>
     <table class="nilai" style="font-size:11px; width: 100%;">
