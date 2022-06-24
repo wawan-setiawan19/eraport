@@ -374,10 +374,12 @@ $predikat_sosial = predikat_label($komsi['nilaisos']);
       $keputusan="NAIK KE KELAS : IX (SEMBILAN)";
       $hasil_semester="pada semester 1 dan 2";
       $titimangsa = 'Cirebon, 24 Juni 2022';
+      $break = '</div><div>';
     }else{
       $keputusan="NAIK KE KELAS : VIII (DELAPAN)";
       $hasil_semester="pada semester 1 dan 2";
       $titimangsa = 'Cirebon, 24 Juni 2022';
+      $break = '</div><div>';
     };
     $content.='
     <b style="font-size: 12px;">H. TANGGAPAN ORANGTUA/WALI</b><br>
@@ -386,13 +388,11 @@ $predikat_sosial = predikat_label($komsi['nilaisos']);
         <td><br><br><br></td> 
       </tr>
     </table>
-    </div>';
+    ';
     
     if ($ata['semester']=='2') {
-      if ($kelas[0]!='IX') {
-        $content.='<div style="page-break-after: always;">';
-      }
-      $content.='<table class="nilai" style="font-size:12px; width: 100%; margin-top: 20px;">
+      $content.=$break.'
+      <table class="nilai" style="font-size:12px; width: 100%; margin-top: 20px;">
         <tr>
           <td>
             <b>Keputusan:</b><br>
@@ -432,9 +432,13 @@ $predikat_sosial = predikat_label($komsi['nilaisos']);
                 <div>NIP.</div>
             </td>
         </tr>
-    </table>';
-    if ($kelas[0]!='IX') {
-      $content.='</div>';
-    }
+    </table>
+    </div>';
+    // if ($angkatan[0] == 'VIII') {
+    //   $content.='</div>';
+    // }
+    // if ($angkatan[0] == 'VII') {
+    //   $content.='</div>';
+    // }
     $footer = $hsis['kelas_dapodik'].'  |  '.strtoupper($hsis['nama']).'  |  '.$hsis['nisn'];
 ?>
