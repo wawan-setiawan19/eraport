@@ -338,7 +338,7 @@ $predikat_sosial = predikat_label($komsi['nilaisos']);
     ';
     $setra= mysqli_fetch_array(mysqli_query($con,"SELECT * FROM rapotsiswa where c_ta='$c_ta' and c_siswa='$smk[c_siswa]' and c_kelas='$kel[c_kelas]' limit 1 "));
     $content.='
-    <br><b style="font-size: 12px;">F. KETIDAKHADIRAN</b><br>
+    <b style="font-size: 12px;">F. KETIDAKHADIRAN</b><br>
     <table class="nilai" style="font-size:11px; width: 100%;">
       <tr>
         <td width="35%">SAKIT (S)</td>
@@ -355,7 +355,7 @@ $predikat_sosial = predikat_label($komsi['nilaisos']);
       $content.='
     </table>';
     $content.='
-    <br><b style="font-size: 12px;">G. CATATAN WALI KELAS</b><br>
+    <b style="font-size: 12px;">G. CATATAN WALI KELAS</b><br>
     <table class="nilai" style="font-size:11px; width: 100%;">
       <tr>';
       if($setra==NULL){
@@ -380,12 +380,13 @@ $predikat_sosial = predikat_label($komsi['nilaisos']);
       $titimangsa = 'Cirebon, 24 Juni 2022';
     };
     $content.='
-    <br><b style="font-size: 12px;">H. TANGGAPAN ORANGTUA/WALI</b><br>
+    <b style="font-size: 12px;">H. TANGGAPAN ORANGTUA/WALI</b><br>
     <table class="nilai" style="font-size:11px; width: 100%;">
       <tr>
         <td><br><br><br></td> 
       </tr>
-    </table>';
+    </table>
+    </div>';
     
     if ($ata['semester']=='2') {
       if ($kelas[0]=='VII'|| $kelas[0]=='VIII') {
@@ -433,7 +434,7 @@ $predikat_sosial = predikat_label($komsi['nilaisos']);
         </tr>
     </table>';
     if ($kelas[0]=='VII'||$kelas[0]=='VIII') {
-      $content.='</div></div>';
+      $content.='</div>';
     }
     $footer = $hsis['kelas_dapodik'].'  |  '.strtoupper($hsis['nama']).'  |  '.$hsis['nisn'];
 ?>
