@@ -205,10 +205,10 @@ else{
   }
 //tahun akademik
   else if($akh==md5('addta')){ $c_ta=random(9);
-    $smk->addta($con,$c_ta,$_POST['tahun'],$_POST['semester']);
+    $smk->addta($con,$c_ta,$_POST['tahun'],$_POST['semester'],$_POST['titimangsa_pts'],$_POST['titimangsa_rapot']);
   }
   else if($akh==md5('editta')){
-    $smk->editta($con,$_POST['c_ta'],$_POST['tahun'],$_POST['semester']);
+    $smk->editta($con,$_POST['c_ta'],$_POST['tahun'],$_POST['semester'],$_POST['titimangsa_pts'],$_POST['titimangsa_rapot']);
   }
   else if($akh==md5('aktifkan')){
     if($aplikasi['hapsetaktif']=='YES'){

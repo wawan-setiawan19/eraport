@@ -282,11 +282,12 @@ oncontextmenu="return false">
           </a>
           <ul class="treeview-menu">
             <!-- <li ><a href="<?php echo $basewa; ?>printpersiswa"><i class="glyphicon glyphicon-star-empty"></i> Print Nilai Per-Siswa</a></li> -->
-            <li ><a href="<?php echo $basewa; ?>printrapotmid"><i class="glyphicon glyphicon-star-empty"></i> Print Rapot Format Pondok (ttd manual)</a></li>
-            <li ><a href="<?php echo $basewa; ?>printrapot"><i class="glyphicon glyphicon-star-empty"></i> Print Rapot Format Pondok (ttd auto)</a></li>
-            <li ><a href="<?php echo $basewa; ?>printrapotdapodik"><i class="glyphicon glyphicon-star-empty"></i> Print Rapot Format Dapodik</a></li>
-            <li ><a href="<?php echo $basewa; ?>printrapotpts"><i class="glyphicon glyphicon-star-empty"></i> Print Rapot PTS</a></li>
-            <li ><a href="<?php echo $basewa; ?>printskl"><i class="glyphicon glyphicon-star-empty"></i> Print SKL</a></li>
+            <li ><a href="<?php echo $basewa; ?>printrapotmid"><i class="glyphicon glyphicon-star-empty"></i>Rapot Pondok (ttd manual)</a></li>
+            <li ><a href="<?php echo $basewa; ?>printrapot"><i class="glyphicon glyphicon-star-empty"></i>Rapot Pondok (ttd auto)</a></li>
+            <li ><a href="<?php echo $basewa; ?>printrapotdapodik"><i class="glyphicon glyphicon-star-empty"></i>Rapot Dapodik</a></li>
+            <li ><a href="<?php echo $basewa; ?>printrapotmerdeka"><i class="glyphicon glyphicon-star-empty"></i>Rapot Kur Merdeka</a></li>
+            <li ><a href="<?php echo $basewa; ?>printrapotpts"><i class="glyphicon glyphicon-star-empty"></i>Rapot PTS</a></li>
+            <li ><a href="<?php echo $basewa; ?>printskl"><i class="glyphicon glyphicon-star-empty"></i>SKL</a></li>
           </ul>
         </li>
         <li class="treeview">

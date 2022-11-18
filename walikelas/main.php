@@ -68,6 +68,9 @@
     else if($act=='printrapotdapodik'){
       require 'view/printrapotdapodik.php';
     }
+    else if($act=='printrapotmerdeka'){
+      require 'view/printrapotmerdeka.php';
+    }
     else if($act=='printskl'){
       require 'view/printskl.php';
     }

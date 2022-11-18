@@ -71,6 +71,14 @@
             <label>SEMESTER</label>
             <input type="text" name="semester" class="form-control" value="<?php echo $akh['semester']; ?>">
           </div>
+          <div class="form-group">
+            <label>TANGGAL TITIMANGSA PTS</label>
+            <input type="text" name="titimangsa_pts" class="form-control" value="<?php echo $akh['titimangsa_pts']; ?>">
+          </div>
+          <div class="form-group">
+            <label>TANGGAL TITIMANGSA RAPOT</label>
+            <input type="text" name="titimangsa_rapot" class="form-control" value="<?php echo $akh['titimangsa_rapot']; ?>">
+          </div>
         </div>
         <div class="modal-footer">
           <button class="btn btn-primary btn-circle"><i class="glyphicon glyphicon-ok"></i> Simpan</button> 

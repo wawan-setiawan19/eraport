@@ -47,7 +47,7 @@ class action{
     header('location:../../editwalimurid/'.$c_siswa.'');
   }
   function editwalimurid($con,$c_orangtua,$c_siswa,$nama,$username,$password){
-    $akh=mysqli_query($con,"UPDATE walimurid set c_siswa='$c_siswa',nama='$nama',username='$username',password='$password' where c_walimurid='$c_walimurid' ");
+    $akh=mysqli_query($con,"UPDATE walimurid set c_siswa='$c_siswa',nama='$nama',username='$username',password='$password' where c_walimurid='$c_orangtua' ");
     session_start();
     $_SESSION['pesan']='edit';
     header('location:../../editwalimurid/'.$c_siswa.'');
@@ -106,14 +106,14 @@ class action{
     header('location:../../editwalikelas/'.$c_walikelas.'');
   }
 //tahun akademik
-  function addta($con,$c_ta,$tahun,$semester){
-    $akh=mysqli_query($con,"INSERT INTO tahunakademik set c_ta='$c_ta',tahun='$tahun',semester='$semester' ");
+  function addta($con,$c_ta,$tahun,$semester, $titimangsa_pts, $titimangsa_rapot){
+    $akh=mysqli_query($con,"INSERT INTO tahunakademik set tahun='$tahun',semester='$semester',titimangsa_pts='$titimangsa_pts', titimangsa_rapot='$titimangsa_rapot' ");
     session_start();
     $_SESSION['pesan']='tambah';
     header('location:../../tahunakademik');
   }
-  function editta($con,$c_ta,$tahun,$semester){
-    $akh=mysqli_query($con,"UPDATE tahunakademik set tahun='$tahun',semester='$semester' where c_ta='$c_ta' ");
+  function editta($con,$c_ta,$tahun,$semester, $titimangsa_pts, $titimangsa_rapot){
+    $akh=mysqli_query($con,"UPDATE tahunakademik set tahun='$tahun',semester='$semester',titimangsa_pts='$titimangsa_pts', titimangsa_rapot='$titimangsa_rapot' where c_ta='$c_ta' ");
     session_start();
     $_SESSION['pesan']='edit';
     header('location:../../tahunakademik');
