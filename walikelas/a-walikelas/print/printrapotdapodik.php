@@ -107,18 +107,16 @@ $predikat_sosial = predikat_label($komsi['nilaisos']);
     <div style="page-break-after: always">';
     //<center><img class="text-center" src="../kop/kop2.png" style="width:80%;height:100px;"></center>
     $angkatan = explode(" ",$hsis['kelas_dapodik']);
+    $titimangsa = 'Cirebon, '.$ata['titimangsa_rapot'];
     if ($angkatan[0] == 'IX') {
       $keputusan="LULUS";
-      $titimangsa = 'Cirebon, 15 Juni 2022';
     }elseif ($angkatan[0] == 'VIII') {
       $keputusan="NAIK KE KELAS : IX (SEMBILAN)";
       $hasil_semester="pada semester 1 dan 2";
-      $titimangsa = 'Cirebon, 24 Juni 2022';
       $break = '</div><div>';
     }else{
       $keputusan="NAIK KE KELAS : VIII (DELAPAN)";
       $hasil_semester="pada semester 1 dan 2";
-      $titimangsa = 'Cirebon, 24 Juni 2022';
       $break = '</div><div>';
     };
     $content.='
