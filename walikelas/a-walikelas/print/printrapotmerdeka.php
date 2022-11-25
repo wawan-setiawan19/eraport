@@ -155,7 +155,7 @@ $predikat_sosial = predikat_label($komsi['nilaisos']);
             $content.='<td>'.$vr.'</td>';
             $content.='<td class="text-left">'.$hpel['mapel'].'</td>';
             $content.='<td>'.$NA.'</td>';
-            $content.='<td class="text-left" style="text-align:justify;">'.$predikat.'</td>';
+            $content.='<td class="text-left" style="text-align:justify;">'.$deskripsi['des_peng'].'</td>';
             $content.='</tr>';
             $vr++;
           }
