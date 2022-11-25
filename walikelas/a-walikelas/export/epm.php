@@ -2,6 +2,9 @@
 function koma($nilai){
   return number_format($nilai,2);
 }
+function bulat($nilai){
+  return number_format($nilai,0);
+}
 $kel= mysqli_fetch_array(mysqli_query($con,"SELECT kelas FROM kelas where c_kelas='$_GET[r]' "));
 $mapel= mysqli_query($con,"SELECT * FROM mapel where c_mapel='$_GET[q]' "); foreach($mapel as $hmapel);
     error_reporting(E_ALL);

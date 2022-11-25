@@ -153,7 +153,7 @@ $predikat_sosial = predikat_label($komsi['nilaisos']);
             $content.='<tr class="text-center">';
             $content.='<td>'.$vr.'</td>';
             $content.='<td class="text-left">'.$hpel['mapel'].'</td>';
-            $content.='<td>'.nilairaport($hpel['nilaitugas'],$hpel['nilaiuh'],$hpel['nilaimid'],$hpel['nilaiuas']).'</td>';
+            $content.='<td>'.koma(nilairaport($hpel['nilaitugas'],$hpel['nilaiuh'],$hpel['nilaimid'],$hpel['nilaiuas'])).'</td>';
             $content.='<td class="text-left" style="text-align:justify;">'.$deskripsi['des_peng'].'</td>';
             $content.='</tr>';
             $vr++;
