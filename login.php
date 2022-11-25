@@ -73,7 +73,7 @@ no-repeat center center fixed; background-size: cover;
   </div>
   <!-- /.login-logo -->
   <div class="login-box-body">
-    <p class="text-center"><img src="<?php echo $base.'media/logo/tutwuri.png';?>" alt="" style="height:100px;"></p>
+    <p class="text-center"><img src="<?php echo $base.'media/logo/logo-smp.png';?>" alt="" style="height:100px;"></p>
 
     <p class="login-box-msg" style="font-size:100%;">Masukkan Username dan Password</p>  
     <?php if(isset($_SESSION['pesan']) && $_SESSION['pesan']=='gagal'){?>
