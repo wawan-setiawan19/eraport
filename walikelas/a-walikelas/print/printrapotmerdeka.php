@@ -268,5 +268,113 @@ $predikat_sosial = predikat_label($komsi['nilaisos']);
         </tr>
     </table>
     </div>';
+  //   $content.='
+  // < style="page-break-after: always;">
+  //   <b style="font-size: 13px;">Madrasah Diniyah</b><br>
+  //   <table style="font-size: 12px; width: 100%; margin-top: 10px; margin-bottom: 10px;" class="nilai">
+  //     <tr class="text-center">
+  //       <td width="2%" rowspan="2">No</td>
+  //       <td rowspan="2" width="20%">Kitab</td>
+  //       <td rowspan="2" width="2%">KKM</td>
+  //       <td colspan="3">Nilai</td>
+  //     </tr>
+  //     <tr class="text-center">
+  //       <td width="3%">Angka</td>
+  //       <td width="10%">Predikat</td>
+  //       <td>Keterangan</td>
+  //     </tr>';
+  //     $allnilmd= array();
+  //     $md=mysqli_query($con,"SELECT * FROM mapelmd_kelas left join mapelmd on (mapelmd.id_mapelmd=mapelmd_kelas.id_mapelmd) where c_kelas='$kel[c_kelas]' order by nama_mapelmd asc "); $vr=1;
+  //     while($hmd=mysqli_fetch_array($md)){
+  //       $nilmd= mysqli_fetch_array(mysqli_query($con,"SELECT * FROM nilaimd where c_ta='$c_ta' and c_siswa='$smk[c_siswa]' and c_kelas='$kel[c_kelas]' and id_mapelmd='$hmd[id_mapelmd]' "));
+  //         $allnilmd[]= $nilmd['nilai'];
+
+  //         $content.= '
+  //         <tr>
+  //           <td class="text-center">'.$vr.'</td>
+  //           <td>'.$hmd['nama_mapelmd'].'</td>
+  //           <td class="text-center"><b>'.$hmd['kkm_mapelmd'].'</b></td>
+  //           <td class="text-center">'.koma($nilmd['nilai']).'</td>
+  //           <td class="text-center">'.predikattambahan($nilmd['nilai'],$hmd['kkm_mapelmd']).'</td>
+  //           <td>'.$nilmd['deskripsi'].'</td>
+  //         </tr>
+  //         ';
+  //     $vr++; }
+  //     $content.= '<tr class="text-center">
+  //   <td colspan="3">Rata-Rata</td>
+  //   <td>'.koma(rata($allnilmd)).'</td>
+  //   <td></td>
+  //   <td></td>
+  // </tr>';
+  // $content.='
+  // </table>
+  //   <b style="font-size: 12px;">Tahfidzul Quran</b><br>
+  //   <table style="font-size: 12px; width:100%; margin: 10px 0;" class="nilai">
+  //     <tr class="text-center">
+  //       <td width="2%">No</td>
+  //       <td width="20%">Capaian</td>
+  //       <td width="9.5%">Juz/Jilid</td>
+  //       <td width="10%">Surat</td>
+  //       <td width="10%">Ayat/Hal</td>
+  //       <td>Deskripsi</td>
+  //     </tr>
+  //     ';
+  //     $md=mysqli_query($con,"SELECT * FROM mapeltq_kelas left join mapeltq on (mapeltq.id_mapeltq=mapeltq_kelas.id_mapeltq) where c_kelas='$kel[c_kelas]' order by nama_mapeltq asc "); $vr=1;
+  //     while($hmd=mysqli_fetch_array($md)){
+  //       $niltq= mysqli_fetch_array(mysqli_query($con,"SELECT * FROM nilaitq where c_ta='$c_ta' and c_siswa='$smk[c_siswa]' and c_kelas='$kel[c_kelas]' and id_mapeltq='$hmd[id_mapeltq]' "));
+  //         $content.= '
+  //         <tr>
+  //           <td class="text-center">'.$vr.'</td>
+  //           <td>'.$hmd['nama_mapeltq'].'</td>
+  //           <td class="text-center">'.$niltq['juz'].'</td>
+  //           <td class="text-center">'.$niltq['surat'].'</td>
+  //           <td class="text-center">'.$niltq['ayat'].'</td>
+  //           <td>'.$niltq['deskripsi'].'</td>
+  //         </tr>
+  //         ';
+  //     $vr++; }
+  //   $content.='
+  // </table>';
+  // $content .='
+  //     <div >
+  //       <!-- <p class="text-center" style="font-size: 12px;">Cirebon, '.tgl(date('d-m-Y')).'</p> -->
+  //       <p class="text-center" style="font-size: 12px;">Cirebon, 15 Juni 2022</p>
+  //       <br><br>
+  //       <table style="width:100%; font-size:13px;">
+  //     <tr>
+  //       <td valign="top" width="50%" class="text-center">
+  //         Wali Grade
+  //         <br><br><br><br><br><br>
+  //         <u><b>'.$kel['waligrade'].'</b></u>
+  //       </td>
+
+  //       <td valign="top" width="50%" class="text-center">
+  //         Wali Kelas
+  //         <br><br><br><br><br><br>
+  //         <u><b>'.$guru['nama'].'</b></u>
+  //       </td>
+  //     </tr>
+  //   </table>
+  //   <table style="width:100%; font-size:13px; margin-top:10px;">
+  //     <tr>
+  //       <td valign="top" width="47%" class="text-center">
+  //         <br>
+  //         Kepala SMP Islam Qurani Al Bahjah
+  //         <br><br><br><br><br><br>
+  //         <u><b>Fikri Rizky Pratama, S.Pd.</b></u>
+  //       </td>
+  //       <td valign="top" width="6%" class="text-center">
+  //         Mengetahui,
+  //       </td>
+  //       <td valign="top" width="47%" class="text-center">
+  //         <br>
+  //         Kepala Pondok Al Bahjah
+  //         <br><br><br><br><br><br>
+  //         <u><b>Muhammad Subhan, Lc.</b></u>
+  //       </td>
+  //     </tr>
+  //   </table>
+  //   </div
+  // ';
     $footer = $kel['kelas'].'  |  '.strtoupper($hsis['nama']).'  |  '.$hsis['nisn'];
 ?>
