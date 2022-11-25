@@ -16,6 +16,9 @@ function anti_injection($data){
 function koma($nilai){
   return number_format($nilai,2);
 }
+function bulat($nilai){
+  return number_format($nilai,0);
+}
 function terbilang($nilai) {
   if($nilai == 100) {
     return 'Seratus';

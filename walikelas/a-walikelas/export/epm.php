@@ -1,6 +1,6 @@
 <?php
 function koma($nilai){
-  return number_format($nilai,2);
+  return number_format($nilai,1);
 }
 function bulat($nilai){
   return number_format($nilai,0);
