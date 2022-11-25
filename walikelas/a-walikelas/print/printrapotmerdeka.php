@@ -148,12 +148,13 @@ $predikat_sosial = predikat_label($komsi['nilaisos']);
           $content.= '';
           foreach($pel as $hpel){
             require '../view/rumus/nilairapot.php';
-            $predikat = predikattambahan(bulat(nilairaport($hpel['nilaitugas'],$hpel['nilaiuh'],$hpel['nilaimid'],$hpel['nilaiuas'])), $hpel['sl']);
+            $NA = bulat(nilairaport($hpel['nilaitugas'],$hpel['nilaiuh'],$hpel['nilaimid'],$hpel['nilaiuas']));
+            $predikat = predikattambahan($NA, $hpel['sl']);
             $deskripsi=mysqli_fetch_array(mysqli_query($con,"SELECT * FROM deskripsi_mapel where c_ta='$c_ta'and c_mapel='$hpel[c_mapel]' and predikat = '$predikat' "));
             $content.='<tr class="text-center">';
             $content.='<td>'.$vr.'</td>';
             $content.='<td class="text-left">'.$hpel['mapel'].'</td>';
-            $content.='<td>'.bulat(nilairaport($hpel['nilaitugas'],$hpel['nilaiuh'],$hpel['nilaimid'],$hpel['nilaiuas'])).'</td>';
+            $content.='<td>'.$NA.'</td>';
             $content.='<td class="text-left" style="text-align:justify;">'.$predikat.'</td>';
             $content.='</tr>';
             $vr++;
