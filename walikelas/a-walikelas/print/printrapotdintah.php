@@ -121,8 +121,10 @@ $predikat_sosial = predikat_label($komsi['nilaisos']);
       $hasil_semester="pada semester 1 dan 2";
       $break = '</div><div>';
     };
+    $content.=header_identitas($kel['kelas'], $sem, $hsis['nama'], $ata['tahun'], $hsis['nisn'], $hsis['nis']);
     $content.='
   <div style="page-break-after: always;">
+  <div class="text-center">CAPAIAN HASIL BELAJAR DINIYAH DAN TAHFIDZ</div>
     <b style="font-size: 13px;">A. Madrasah Diniyah</b><br>
     <table style="font-size: 12px; width:100%" class="nilai">
       <tr class="text-center">
@@ -158,9 +160,11 @@ $predikat_sosial = predikat_label($komsi['nilaisos']);
     <td>'.koma(rata($allnilmd)).'</td>
     <td></td>
     <td></td>
-  </tr>';
-  $content.='
+  </tr>
   </table>
+  </div>';
+  $content.='
+  <div style="page-break-after: always;">
     <b style="font-size: 12px;">B. Tahfidzul Quran</b><br>
     <table style="font-size: 12px; width:100%" class="nilai">
       <tr class="text-center">
