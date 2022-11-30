@@ -71,6 +71,9 @@
     else if($act=='printrapotmerdeka'){
       require 'view/printrapotmerdeka.php';
     }
+    else if($act=='printrapotdintah'){
+      require 'view/printrapotdintah.php';
+    }
     else if($act=='printskl'){
       require 'view/printskl.php';
     }
