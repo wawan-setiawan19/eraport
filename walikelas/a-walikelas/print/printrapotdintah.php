@@ -217,7 +217,7 @@ $predikat_sosial = predikat_label($komsi['nilaisos']);
           <td width="25%">
             <div>Koordinator Tahfidz</div>
             <div style="height: 70px"></div>
-            <div>Ust. Fajar Arif Putra</div>
+            <div class="nama">Ust. Fajar Arif Putra</div>
           </td>
           <td width="25%"></td>
           <td width="20%"></td>
