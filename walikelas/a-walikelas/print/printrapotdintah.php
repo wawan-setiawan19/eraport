@@ -126,7 +126,7 @@ $predikat_sosial = predikat_label($komsi['nilaisos']);
   <div style="page-break-after: always;">
   <div class="text-center">CAPAIAN HASIL BELAJAR DINIYAH DAN TAHFIDZ</div>
     <b style="font-size: 13px;">A. Madrasah Diniyah</b><br>
-    <table style="font-size: 12px; width:100%" class="nilai">
+    <table style="font-size: 12px; margin-top: 20px; width:100%" class="nilai">
       <tr class="text-center">
         <td width="2%" rowspan="2">No</td>
         <td rowspan="2" width="20%">Kitab</td>
@@ -166,7 +166,7 @@ $predikat_sosial = predikat_label($komsi['nilaisos']);
   $content.='
   <div style="page-break-after: always;">
     <b style="font-size: 12px;">B. Tahfidzul Quran</b><br>
-    <table style="font-size: 12px; width:100%" class="nilai">
+    <table style="font-size: 12px; margin-top: 20px; width:100%" class="nilai">
       <tr class="text-center">
         <td width="2%">No</td>
         <td width="20%">Capaian</td>
