@@ -172,7 +172,7 @@ $predikat_sosial = predikat_label($komsi['nilaisos']);
   // '.header_identitas($kel['kelas'], $sem, $hsis['nama'], $ata['tahun'], $hsis['nisn'], $hsis['nis']).'
   // ';
   $content.='
-    <table class="nilai" style="font-size:11px; width: 100%">';
+    <table class="nilai" style="font-size:11px; width: 100%; margin-top: 20px;">';
       $extra= mysqli_query($con,"SELECT * FROM nilaiextra left join extra on(nilaiextra.c_extra=extra.c_extra) where c_siswa='$smk[c_siswa]' and c_kelas='$kel[c_kelas]' and c_ta='$c_ta'");
       if($extra==null){
         $content.= '<tr><td>-</td></tr>';
