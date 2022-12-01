@@ -170,6 +170,25 @@ else{
     $_SESSION['pesan']='selesai';
     header('location:../../settingdapodik');
   }
+  else if($akh==md5('inputwaligrade')){
+    $at=date('Y-m-d');
+    $wali_grade = $_POST['wali_grade'];
+    $lsis=mysqli_query($con,"SELECT * FROM siswa where c_kelas='$_POST[c_kelas]' order by nama asc ");
+    $no=0;
+    while($hlsis=mysqli_fetch_array($lsis)){
+      //disini inputnya
+          $cekada=mysqli_fetch_array(mysqli_query($con,"SELECT * FROM siswa where c_siswa='$hlsis[c_siswa]' and c_kelas='$_POST[c_kelas]' "));
+          if($cekada==NULL){
+            $input=mysqli_query($con,"INSERT INTO siswa set c_siswa='$hlsis[c_siswa]',c_kelas='$_POST[c_kelas]',wali_grade='$wali_grade[$no]' ");
+          }else{
+             $edit=mysqli_query($con,"UPDATE siswa set wali_grade='$wali_grade[$no]' WHERE c_siswa='$cekada[c_siswa]' ");
+          }
+        $no++;
+    }
+    session_start();
+    $_SESSION['pesan']='selesai';
+    header('location:../../settingwaligrade');
+  }
   else if($akh==md5('inputnilaiijazah')){
     $nilai = $_POST['nilai'];
     $lsis=mysqli_query($con,"SELECT * FROM siswa where c_kelas='$_POST[c_kelas]' order by nama asc "); $no=0; while($hlsis=mysqli_fetch_array($lsis)){

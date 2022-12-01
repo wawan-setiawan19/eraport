@@ -112,8 +112,8 @@ class action{
     $_SESSION['pesan']='tambah';
     header('location:../../tahunakademik');
   }
-  function editta($con,$c_ta,$tahun,$semester, $titimangsa_pts, $titimangsa_rapot){
-    $akh=mysqli_query($con,"UPDATE tahunakademik set tahun='$tahun',semester='$semester',titimangsa_pts='$titimangsa_pts', titimangsa_rapot='$titimangsa_rapot' where c_ta='$c_ta' ");
+  function editta($con,$c_ta,$tahun,$semester, $titimangsa_pts, $titimangsa_rapot, $titimangsa_tahfidz, $titimangsa_kelulusan){
+    $akh=mysqli_query($con,"UPDATE tahunakademik set tahun='$tahun',semester='$semester',titimangsa_pts='$titimangsa_pts', titimangsa_rapot='$titimangsa_rapot', titimangsa_kelulusan='$titimangsa_kelulusan', titimangsa_tahfidz='$titimangsa_tahfidz' where c_ta='$c_ta' ");
     session_start();
     $_SESSION['pesan']='edit';
     header('location:../../tahunakademik');

@@ -208,7 +208,7 @@ else{
     $smk->addta($con,$c_ta,$_POST['tahun'],$_POST['semester'],$_POST['titimangsa_pts'],$_POST['titimangsa_rapot']);
   }
   else if($akh==md5('editta')){
-    $smk->editta($con,$_POST['c_ta'],$_POST['tahun'],$_POST['semester'],$_POST['titimangsa_pts'],$_POST['titimangsa_rapot']);
+    $smk->editta($con,$_POST['c_ta'],$_POST['tahun'],$_POST['semester'],$_POST['titimangsa_pts'],$_POST['titimangsa_rapot'],$_POST['titimangsa_tahfidz'],$_POST['titimangsa_kelulusan']);
   }
   else if($akh==md5('aktifkan')){
     if($aplikasi['hapsetaktif']=='YES'){

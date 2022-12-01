@@ -109,7 +109,7 @@ $predikat_sosial = predikat_label($komsi['nilaisos']);
    <p>'.$PAGE_NUM.'</p>';
     //<center><img class="text-center" src="../kop/kop2.png" style="width:80%;height:100px;"></center>
     $angkatan = explode(" ",$kel['kelas']);
-    $titimangsa = 'Cirebon, '.$ata['titimangsa_rapot'];
+    $titimangsa = 'Cirebon, '.$ata['titimangsa_tahfidz'];
     if ($angkatan[0] == 'IX') {
       $keputusan="LULUS";
     }elseif ($angkatan[0] == 'VIII') {
@@ -203,41 +203,29 @@ $predikat_sosial = predikat_label($komsi['nilaisos']);
           </td>
           <td width="25%"></td>
           <td width="20%"></td>
-          <td>
+          <td width="25%">
             <div>'.$titimangsa.'</div>
-            <div>Wali Kelas,</div>
+            <div>Wali Grade</div>
             <div style="height: 70px"></div>
-            <div class="nama">'.$guru['nama'].'</div>
-            <div>NIP.</div>
+            <div class="nama" style="text-transform: uppercase">'.$hsis['wali_grade'].'</div>
           </td>
         </tr>
     </table>
     <table style="font-size:12px; width: 100%; margin-top: 30px" cellpadding="5">
         <tr>
-          <td width="25%">
-            <div>Koordinator Tahfidz</div>
+          <td>
+            <div>Koordinator Diniyah Formal</div>
             <div style="height: 70px"></div>
-            <div class="nama">Ust. Fajar Arif Putra</div>
+            <div class="nama" style="text-transform: uppercase">Rizky Aji Gunawan</div>
           </td>
           <td width="25%"></td>
           <td width="20%"></td>
           <td>
-            <div>Koordinator Diniyah Formal</div>
-            <div style="height: 70px"></div>
-            <div class="nama">Ust. Aji</div>
+              <div>Mengetahui</div>
+              <div>Kepala Sekolah</div>
+              <div style="height: 70px"></div>
+              <div class="nama">FIKRI RIZKY PRATAMA, S.Pd.</div>
           </td>
-        </tr>
-    </table>
-    <table style="font-size:12px; width: 100%;">
-        <tr>
-            <td width="37.5%"></td>
-            <td>
-                <div>Mengetahui</div>
-                <div>Kepala Sekolah</div>
-                <div style="height: 70px"></div>
-                <div class="nama">FIKRI RIZKY PRATAMA, S.Pd.</div>
-                <div>NIP.</div>
-            </td>
         </tr>
     </table>
     </div>';

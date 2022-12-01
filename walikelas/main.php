@@ -101,6 +101,9 @@
     else if($act=='settingdapodik'){
       require 'view/settingdapodik.php';
     }
+    else if($act=='settingwaligrade'){
+      require 'view/settingwaligrade.php';
+    }
     else if($act=='nilaimapelmd'){
       require 'view/mapelmd.php';
     }

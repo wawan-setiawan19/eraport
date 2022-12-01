@@ -261,6 +261,9 @@ oncontextmenu="return false">
               </a>
             </li>
           <?php } ?>
+          <li>
+            <a href="<?php echo $basewa; ?>settingwaligrade">Setting Wali Grade</a>
+          </li>
           </ul>
         </li>
         <li class="treeview">

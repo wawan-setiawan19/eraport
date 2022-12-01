@@ -79,6 +79,14 @@
             <label>TANGGAL TITIMANGSA RAPOT</label>
             <input type="text" name="titimangsa_rapot" class="form-control" value="<?php echo $akh['titimangsa_rapot']; ?>">
           </div>
+          <div class="form-group">
+            <label>TANGGAL TITIMANGSA TAHFIDZ-DINIYAH</label>
+            <input type="text" name="titimangsa_tahfidz" class="form-control" value="<?php echo $akh['titimangsa_tahfidz']; ?>">
+          </div>
+          <div class="form-group">
+            <label>TANGGAL TITIMANGSA KELULUSAN</label>
+            <input type="text" name="titimangsa_kelulusan" class="form-control" value="<?php echo $akh['titimangsa_kelulusan']; ?>">
+          </div>
         </div>
         <div class="modal-footer">
           <button class="btn btn-primary btn-circle"><i class="glyphicon glyphicon-ok"></i> Simpan</button> 
