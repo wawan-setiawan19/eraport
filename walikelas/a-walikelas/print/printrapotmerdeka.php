@@ -165,9 +165,9 @@ $predikat_sosial = predikat_label($komsi['nilaisos']);
 
   $content.='
   </table>
-  </div>
   ';
   // $content .= '
+    // </div>
   // <div style="page-break-after: always;">
   // '.header_identitas($kel['kelas'], $sem, $hsis['nama'], $ata['tahun'], $hsis['nisn'], $hsis['nis']).'
   // ';
