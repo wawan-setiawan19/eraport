@@ -187,9 +187,9 @@ $predikat_sosial = predikat_label($komsi['nilaisos']);
     <table style="font-size:12px; width: 100%" class="nilai">
       <tr class="text-center">
         <th width="2%">No</th>
-        <th width="40%">Capaian</th>
+        <th width="10%">Capaian</th>
         <th width="10%">Juz/Jilid</th>
-        <th width="10%">Surat</th>
+        <th width="40%">Surat</th>
         <th width="10%">Ayat/Hal</th>
         <th>Nilai PETA</th>
       </tr>
