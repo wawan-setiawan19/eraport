@@ -120,7 +120,6 @@ $predikat_sosial = predikat_label($komsi['nilaisos']);
       <tr class="text-center" style="font-weight: bold">
         <td width="2%">NO</td>
         <td width="50%">Mata Pelajaran</td>
-        <td width="2%">KKM</td>
         <td width="3%">Nilai</td>
         <td>Terbilang</td>
       </tr>
@@ -142,7 +141,6 @@ $predikat_sosial = predikat_label($komsi['nilaisos']);
         $content.='<tr class="text-center">';
         $content.='<td>'.$vr.'</td>';
         $content.='<td class="text-left">'.$hpel['mapel'].'</td>';
-        $content.='<td>'.$hpel['sl'].'</td>';
         $content.='<td>'.$hpel['nilaimid'].'</td>';
         $content.='<td class="text-left" style="text-align:justify;">'.terbilang($hpel['nilaimid']).'</td>';
         $content.='</tr>';

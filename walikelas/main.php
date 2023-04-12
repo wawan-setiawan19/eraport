@@ -80,6 +80,9 @@
     else if($act=='printrapotpts'){
       require 'view/printrapotpts.php';
     }
+    else if($act=='printrapotptsmerdeka'){
+      require 'view/printrapotptsmerdeka.php';
+    }
     else if($act=='deskripsisikap'){
       require 'view/deskripsi_sikap.php';
     }

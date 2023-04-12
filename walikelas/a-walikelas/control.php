@@ -683,6 +683,36 @@ else{
     // $canvas->page_text(30, $h - 30, $footer, $font, 8, $color);
     $dompdf->stream('Rapot '.$hsis['nama'].'.pdf',array("Attachment"=>0));
   }
+  else if($akh==md5('printrapotptsmerdeka')){
+    $sis= mysqli_query($con,"SELECT * FROM siswa where c_kelas='$_GET[q]' and c_siswa='$_GET[r]' order by nama asc limit 1"); 
+    foreach($sis as $hsis);
+    require_once("../../php/dompdf/autoload.inc.php"); 
+    // require_once("../../php/dompdf/dompdf_config.inc.php"); 
+    require '../../php/function.php';
+    require 'print/printrapotptsmerdeka.php';
+    $dompdf = new Dompdf();
+    // $customPaper = array(0,0,800,1000);
+    // $dompdf->set_paper($customPaper);
+    $paper = 'A4';
+    $orientation = 'Portrait';
+    $dompdf->set_paper($paper,$orientation);
+    $dompdf->load_html($content);
+    $options = new Options();
+    $options->setIsRemoteEnabled(true);
+    $dompdf->setOptions($options);
+    $dompdf->output();
+    $dompdf->render();
+    $canvas = $dompdf->get_canvas();
+    $font = $dompdf->getFontMetrics();
+    $fontItalic = $font->get_font('helvetica', 'italic');
+    $color = array(0, 0, 0);
+    $w = $canvas->get_width();
+    $h = $canvas->get_height();
+    $canvas->page_text($w - 100, $h - 30, "Halaman         :  {PAGE_NUM}", $fontItalic, 8, $color);
+    $canvas->page_text(30, $h - 30, $footer, $fontItalic, 8, $color);
+    // $canvas->page_text(30, $h - 30, $footer, $font, 8, $color);
+    $dompdf->stream('Rapot '.$hsis['nama'].'.pdf',array("Attachment"=>0));
+  }
   else{
     session_unset($_SESSION['c_walikelas']);
     header('location:'.$base.'login');
