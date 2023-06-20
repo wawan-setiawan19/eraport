@@ -227,7 +227,7 @@ $predikat_sosial = predikat_label($komsi['nilaisos']);
 
     
     if ($ata['semester']=='2') {
-      $content.=$break.'
+      $content.= '
       <table class="nilai" style="font-size:12px; width: 100%; margin-top: 20px;">
         <tr>
           <td>

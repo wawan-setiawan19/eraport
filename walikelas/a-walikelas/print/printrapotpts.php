@@ -18,6 +18,7 @@ function predikat_label($nilai){
 }
 
 function header_identitas($kelas, $semester, $nama, $tahun, $nis, $nisn){
+  $aplikasi = mysqli_fetch_array(mysqli_query($con,"SELECT * FROM aplikasi"));
     return '<table width="100%" style="font-size:13px; width: 100%;" class="identitas">
       <tr>
         <td width="15%">Nama Sekolah</td>
