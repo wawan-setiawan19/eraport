@@ -86,9 +86,9 @@ $tkog= mysqli_query($con,"SELECT * FROM tipekognitif order by c_tipekognitif asc
 	}
 }
 if($aplikasi['dibagi']=='NO'){
-	$nilakhir= number_format($nilaiakhiruh+$nilaiakhirtugas+$nilaiakhirmid+$nilaiakhiruas);
+	$nilakhir= bulat($nilaiakhiruh+$nilaiakhirtugas+$nilaiakhirmid+$nilaiakhiruas);
 }
 else if($aplikasi['dibagi']=='YES'){
-	$nilakhir= number_format($nilaiakhiruh+$nilaiakhirtugas+$nilaiakhirmid+$nilaiakhiruas);
+	$nilakhir= bulat($nilaiakhiruh+$nilaiakhirtugas+$nilaiakhirmid+$nilaiakhiruas);
 }
 ?>
