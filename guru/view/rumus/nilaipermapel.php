@@ -1,7 +1,7 @@
 <?php 
 $nuh= mysqli_fetch_array(mysqli_query($con,"SELECT SUM(nilai) as nuh from nilaiuh where c_ta='$c_ta' and c_siswa='$hlsis[c_siswa]' and c_kelas='$_GET[q]' and c_mapel='$_GET[r]' "));
 $ntug= mysqli_fetch_array(mysqli_query($con,"SELECT SUM(nilai) as ntug from nilaitugas where c_ta='$c_ta' and c_siswa='$hlsis[c_siswa]' and c_kelas='$_GET[q]' and c_mapel='$_GET[r]' "));
-$nilasli= $nuh['nuh']+$ntug['ntug']+$hlsis['nilaimid']+$hlsis['nilaiuas'];
+$nilasli= $nuh['nuh']*0.35+$ntug['ntug']*0.35+$hlsis['nilaimid']*0.15+$hlsis['nilaiuas']*0.15;
 //nilai akhir ulangan harian
 $tkog= mysqli_query($con,"SELECT * FROM tipekognitif order by c_tipekognitif asc "); foreach($tkog as $htkog){
 	if($htkog['kognitif']=='uh'){
