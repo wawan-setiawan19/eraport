@@ -1,7 +1,7 @@
 <?php 
 $nuh= mysqli_fetch_array(mysqli_query($con,"SELECT SUM(nilai) as nuh from nilaiuh where c_ta='$c_ta' and c_siswa='$hlsis[c_siswa]' and c_kelas='$_GET[q]' and c_mapel='$_GET[r]' "));
 $ntug= mysqli_fetch_array(mysqli_query($con,"SELECT SUM(nilai) as ntug from nilaitugas where c_ta='$c_ta' and c_siswa='$hlsis[c_siswa]' and c_kelas='$_GET[q]' and c_mapel='$_GET[r]' "));
-$nilasli= $nuh['nuh']*0.35+$ntug['ntug']*0.35+$hlsis['nilaimid']*0.15+$hlsis['nilaiuas']*0.15;
+$nilasli= $nuh['nuh']+$ntug['ntug']+$hlsis['nilaimid']+$hlsis['nilaiuas'];
 //nilai akhir ulangan harian
 $tkog= mysqli_query($con,"SELECT * FROM tipekognitif order by c_tipekognitif asc "); foreach($tkog as $htkog){
 	if($htkog['kognitif']=='uh'){
@@ -86,9 +86,9 @@ $tkog= mysqli_query($con,"SELECT * FROM tipekognitif order by c_tipekognitif asc
 	}
 }
 if($aplikasi['dibagi']=='NO'){
-	$nilakhir= number_format(($nilaiakhiruh+$nilaiakhirtugas+$nilaiakhirmid+$nilaiakhiruas));
+	$nilakhir= number_format(($nilaiakhiruh*0.35+$nilaiakhirtugas*0.35+$nilaiakhirmid*0.15+$nilaiakhiruas*0.15));
 }
 else if($aplikasi['dibagi']=='YES'){
-	$nilakhir= number_format(($nilaiakhiruh+$nilaiakhirtugas+$nilaiakhirmid+$nilaiakhiruas)/$aplikasi['berapa']);
+	$nilakhir= number_format(($nilaiakhiruh*0.35+$nilaiakhirtugas*0.35+$nilaiakhirmid*0.15+$nilaiakhiruas*0.15)/$aplikasi['berapa']);
 }
 ?>
