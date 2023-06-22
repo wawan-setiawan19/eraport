@@ -27,7 +27,7 @@
                     <td><?php if($hlsis['nilaimid']==NULL){echo '-';}else{ echo $hlsis['nilaimid'];} ?></td>
                     <td><?php if($hlsis['nilaiuas']==NULL){echo '-';}else{ echo $hlsis['nilaiuas'];} ?></td>
                     <td><?php echo $nilasli; ?></td>
-                    <td><?php echo koma($nilakhir); ?></td>
+                    <td><?php echo bulat($nilakhir); ?></td>
                     <td><?php if($hlsis['nilaiket']==0){echo '-';}else{ ?><a data-target="#ket<?php echo $hlsis['c_siswa']; ?>" data-toggle="modal" class="btn btn-success btn-xs" href="">Lihat</a><?php } ?></td>
                   </tr>                  
                 <?php $no++; } ?>
