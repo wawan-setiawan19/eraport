@@ -53,6 +53,30 @@ else{
     $_SESSION['pesan']='selesai';
     header('location:../../kompetensisikap');
   }
+  else if($akh==md5('simpankompetensisikapnew')){
+    $c_siswa = $_POST['c_siswa'];
+    $angkatan = $_POST['angkatan'];
+    $spiritual = $_POST['spiritual'];
+    $sosial = $_POST['sosial'];
+    $akhlak = $_POST['akhlak'];
+    $nilaispi = $_POST['nilaispi'];
+    $nilaisos = $_POST['nilaisos'];
+    $nilaiakh = $_POST['nilaiakh'];
+    // $lsis=mysqli_query($con,"SELECT * FROM siswa where c_kelas='$_POST[c_kelas]' order by nama asc "); $no=0; while($hlsis=mysqli_fetch_array($lsis)){
+      //disini inputnya
+          $cekada=mysqli_fetch_array(mysqli_query($con,"SELECT * FROM kompetensi_sikap where c_ta='$c_ta' and angkatan='$angkatan'"));
+          if($cekada==NULL){
+            $input=mysqli_query($con,"INSERT INTO kompetensi_sikap set c_ta='$c_ta',c_siswa='$c_siswa',c_kelas='$_POST[c_kelas]',spiritual='$spiritual',sosial='$sosial',akhlak='$akhlak',nilaispi='$nilaispi',nilaisos='$nilaisos',nilaiakh='$nilaiakh', angkatan='$angkatan' ");
+          }else{
+             $edit=mysqli_query($con,"UPDATE kompetensi_sikap set c_ta='$c_ta',c_siswa='$c_siswa',c_kelas='$_POST[c_kelas]',spiritual='$spiritual',sosial='$sosial',akhlak='$akhlak',nilaispi='$nilaispi',nilaisos='$nilaisos',nilaiakh='$nilaiakh', angkatan='$angkatan' WHERE c_kompetensi_sikap='$cekada[c_kompetensi_sikap]' ");
+          }
+        // $no++;
+    // }
+    session_start();
+    $_SESSION['pesan']='selesai';
+    $_SESSION['pesan_panjang']= var_dump($cekada);
+    header('location:../../kompetensisikap');
+  }
   else if($akh==md5('ulangkompetensisikap')){
     mysqli_query($con,"DELETE FROM kompetensi_sikap where c_kelas='$_GET[q]' and c_ta='$c_ta' ");
     session_start();

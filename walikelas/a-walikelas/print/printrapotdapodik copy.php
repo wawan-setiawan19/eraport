@@ -27,14 +27,6 @@ function header_identitas($kelas, $semester, $nama, $tahun, $nis, $nisn){
         <td width="10%">'.$kelas.'</td>
       </tr>
       <tr>
-        <td width="15%">NIS/ NISN</td>
-        <td width="2%">:</td>
-        <td width="56%">'.$nis.' / '.$nisn.'</td>
-        <td width="15%">Fase</td>
-        <td width="2%">:</td>
-        <td width="10%">D</td>
-      </tr>
-      <tr>
         <td width="15%">Alamat</td>
         <td width="2%">:</td>
         <td width="56%">Jl. Pangeran Cakrabuana No. 179</td>
@@ -50,20 +42,25 @@ function header_identitas($kelas, $semester, $nama, $tahun, $nis, $nisn){
         <td width="2%">:</td>
         <td width="10%">'.$tahun.'</td>
       </tr>
+      <tr>
+        <td width="15%">No. Induk/ NISN</td>
+        <td width="2%">:</td>
+        <td width="56%">'.$nis.' / '.$nisn.'</td>
+      </tr>
     </table>
     <hr style="height: 1px;border-width:0; background-color: black;">
     ';
 }
 
-if($ata['semester']=='1'){$sem= '1';}else if($ata['semester']=='2'){$sem= '2';}
+if($ata['semester']=='1'){$sem= '1 (Satu)';}else if($ata['semester']=='2'){$sem= '2 (Dua)';}
 $kel=mysqli_fetch_array(mysqli_query($con,"SELECT *,(SELECT c_guru from walikelas where c_kelas='$_GET[r]') as c_guru,(SELECT ttdwalikelas from walikelas where c_kelas='$_GET[r]') as ttdwalikelas FROM kelas where c_kelas='$_GET[r]' "),MYSQLI_ASSOC);
 $guru= mysqli_fetch_array(mysqli_query($con,"SELECT * from guru where c_guru='$kel[c_guru]' "),MYSQLI_ASSOC);
 $smk=mysqli_query($con,"SELECT * FROM jumlahnilra where c_kelas='$kel[c_kelas]' and c_siswa='$_GET[q]' order by nilaipresen desc limit 1 ");//limit 1 dihapus dan diganti desc
 foreach($smk as $smk){$rin[]= $smk['nilaipresen'];} $rin[]= '';
 $peringkat=1; $ar=0;
-$angkatan = explode(" ",$kel['kelas']);
+
 $deskripsi_sikap= mysqli_fetch_array(mysqli_query($con,"SELECT * FROM deskripsi_sikap where c_ta='$c_ta' and c_siswa='$_GET[q]' and c_kelas='$_GET[r]' "));
-  $komsi= mysqli_fetch_array(mysqli_query($con,"SELECT * FROM kompetensi_sikap where c_ta='$c_ta' and c_kelas='$kel[c_kelas]' and angkatan='$angkatan[0]' "));
+  $komsi= mysqli_fetch_array(mysqli_query($con,"SELECT * FROM kompetensi_sikap where c_ta='$c_ta' and c_siswa='$smk[c_siswa]' and c_kelas='$kel[c_kelas]' "));
   $sis= mysqli_query($con,"SELECT * FROM siswa where c_siswa='$smk[c_siswa]' "); foreach($sis as $hsis);
   $csis=mysqli_fetch_array(mysqli_query($con,"SELECT * FROM walimurid where c_siswa='$hsis[c_siswa]' "));
   
@@ -109,6 +106,7 @@ $predikat_sosial = predikat_label($komsi['nilaisos']);
    <p>'.$PAGE_NUM.'</p>
     <div style="page-break-after: always">';
     //<center><img class="text-center" src="../kop/kop2.png" style="width:80%;height:100px;"></center>
+    $angkatan = explode(" ",$hsis['kelas_dapodik']);
     $titimangsa = 'Cirebon, '.$ata['titimangsa_rapot'];
     if ($angkatan[0] == 'IX') {
       $keputusan="LULUS";
@@ -125,39 +123,46 @@ $predikat_sosial = predikat_label($komsi['nilaisos']);
     
     <br>
     <!-- table identitas -->
-    '.header_identitas($kel['kelas'], $sem, $hsis['nama'], $ata['tahun'], $hsis['nisn'], $hsis['nis']).'
+    '.header_identitas($hsis['kelas_dapodik'], $sem, $hsis['nama'], $ata['tahun'], $hsis['nisn'], $hsis['nis']).'
     <p class="text-center mt-3" style="font-weight: bold">PENCAPAIAN KOMPETENSI PESERTA DIDIK</p>
     <!-- page 1 -->
     <!-- page 1 -->
-    <div style="margin-bottom: 10px;"><b style="font-size: 13px;">A. SIKAP</b></div>
+    <div><b style="font-size: 13px;">A. Sikap</b></div>
+    <div class="title-sikap"><b style="font-size: 12px;">1. Sikap Spiritual</b></div>
     <table style="font-size:12px; width: 100%" class="nilai">
         <tr class="text-center font-weight-bold">
-          <td width="18%">Dimensi</td>
+          <td width="15%">Predikat</td>
           <td>Deskripsi</td>
         </tr>
         <tr>
-            <td>Beriman, bertakwa kepada Tuhan Yang Maha Esa, dan berakhlak mulia</td>
+            <td class="text-center">'.$predikat_spiritual.'</td>
             <td style="text-align:justify;">'.$komsi['spiritual'].'</td>
         </tr>
+    </table>
+    
+    <div class="title-sikap"><b style="font-size: 12px;">2. Sikap Sosial</b></div>
+    
+    <table style="font-size:12px; width: 100%" class="nilai">
+        <tr class="text-center font-weight-bold">
+          <td width="15%">Predikat</td>
+          <td>Deskripsi</td>
+        </tr>
         <tr>
-            <td>Berkebinekaan global</td>
+            <td class="text-center">'.$predikat_sosial.'</td>
             <td style="text-align:justify;">'.$komsi['sosial'].'</td>
         </tr>
+    </table>
+    
+    <table style="font-size:12px; width: 100%; margin-top: 100px" cellpadding="5">
         <tr>
-            <td>Bergotong royong</td>
-            <td style="text-align:justify;">'.$komsi['akhlak'].'</td>
-        </tr>
-        <tr>
-            <td>Mandiri</td>
-            <td style="text-align:justify;">'.$komsi['nilaispi'].'</td>
-        </tr>
-        <tr>
-            <td>Bernalar Kritis</td>
-            <td style="text-align:justify;">'.$komsi['nilaisos'].'</td>
-        </tr>
-        <tr>
-            <td>Kreatif</td>
-            <td style="text-align:justify;">'.$komsi['nilaiakh'].'</td>
+          <td width="70%"></td>
+          <td>
+            <div>'.$titimangsa.'</div>
+            <div>Wali Kelas,</div>
+            <div style="height: 70px"></div>
+            <div class="nama">'.$hsis['walas_dapodik'].'</div>
+            <div>NIP.</div>
+          </td>
         </tr>
     </table>
     <!-- akhir page 1 -->
@@ -165,12 +170,18 @@ $predikat_sosial = predikat_label($komsi['nilaisos']);
     
     <!-- page 2 -->
     <div style="page-break-after: always;">
+    '.header_identitas($hsis['kelas_dapodik'], $sem, $hsis['nama'], $ata['tahun'], $hsis['nisn'], $hsis['nis']).'
     <b style="font-size: 13px; text-transform: uppercase;">B. Pengetahuan dan Keterampilan</b><br>
-    <table style="font-size:12px; width: 100%; margin-top: 10px;" class="nilai">
+    <table style="font-size:12px; width: 100%" class="nilai">
       <tr class="text-center" style="font-weight: bold">
-        <td width="2%">NO</td>
-        <td width="18%">Mata Pelajaran</td>
+        <td width="2%" rowspan="2">NO</td>
+        <td rowspan="2" width="18%">Mata Pelajaran</td>
+        <td rowspan="2" width="2%">KKM</td>
+        <td colspan="3">Pengetahuan</td>
+      </tr>
+      <tr class="text-center" style="font-weight: bold">
         <td width="3%">Nilai</td>
+        <td width="5%">Predikat</td>
         <td>Deskripsi</td>
       </tr>
       ';
@@ -183,7 +194,7 @@ $predikat_sosial = predikat_label($komsi['nilaisos']);
     $pel=mysqli_query($con,"SELECT *,(SELECT avg(nilai) FROM nilaiuh where c_ta='$c_ta' and c_siswa='$smk[c_siswa]' and c_kelas='$kel[c_kelas]' and c_mapel=mapel_kelas.c_mapel) as nilaiuh,(SELECT avg(nilai) FROM nilaitugas where c_ta='$c_ta' and c_siswa='$smk[c_siswa]' and c_kelas='$kel[c_kelas]' and c_mapel=mapel_kelas.c_mapel) as nilaitugas,(SELECT nilai FROM nilaimid where c_ta='$c_ta' and c_siswa='$smk[c_siswa]' and c_kelas='$kel[c_kelas]' and c_mapel=mapel_kelas.c_mapel) as nilaimid,(SELECT nilai FROM nilaiuas where c_ta='$c_ta' and c_siswa='$smk[c_siswa]' and c_kelas='$kel[c_kelas]' and c_mapel=mapel_kelas.c_mapel) as nilaiuas,(SELECT avg(nilai) FROM nilaiket where c_ta='$c_ta' and c_siswa='$smk[c_siswa]' and c_kelas='$kel[c_kelas]' and c_mapel=mapel_kelas.c_mapel) as nilaiket,(select mapel from mapel where c_mapel=mapel_kelas.c_mapel) as mapel,(select mapel from mapel where c_mapel=mapel_kelas.c_mapel) as mapel,(select sl from mapel where c_mapel=mapel_kelas.c_mapel) as sl FROM mapel_kelas where c_kelas='$kel[c_kelas]' and c_katmapel='$hex[c_katmapel]' order by no asc ");
     $vr=1;
     if(mysqli_num_rows($pel)>0){
-        $content.= '<tr><td colspan="4"><b>'.$hex['katmapel'].'</b></td>';
+        $content.= '<tr><td colspan="6"><b>'.$hex['katmapel'].'</b></td>';
       $content.= '';
       foreach($pel as $hpel){
         require '../view/rumus/nilairapot.php';
@@ -192,10 +203,11 @@ $predikat_sosial = predikat_label($komsi['nilaisos']);
         $content.='<tr class="text-center">';
         $content.='<td>'.$vr.'</td>';
         $content.='<td class="text-left">'.$hpel['mapel'].'</td>';
+        $content.='<td>'.$hpel['sl'].'</td>';
 
-        $content.='<td>'.bulat(nilairaport($hpel['nilaitugas'],$hpel['nilaiuh'],$hpel['nilaimid'],$hpel['nilaiuas'])).'</td>';
+        $content.='<td>'.koma(nilairaport($hpel['nilaitugas'],$hpel['nilaiuh'],$hpel['nilaimid'],$hpel['nilaiuas'])).'</td>';
 
-        // $content.='<td>'.$predikat.'</td>';
+        $content.='<td>'.$predikat.'</td>';
         $content.='<td class="text-left" style="text-align:justify;">'.$deskripsi['des_peng'].'</td>';
         $content.='</tr>';
         $vr++;
@@ -214,7 +226,7 @@ $predikat_sosial = predikat_label($komsi['nilaisos']);
             <div>'.$titimangsa.'</div>
             <div>Wali Kelas,</div>
             <div style="height: 70px"></div>
-            <div class="nama">'.$guru['nama'].'</div>
+            <div class="nama">'.$hsis['walas_dapodik'].'</div>
             <div>NIP.</div>
           </td>
         </tr>
@@ -223,11 +235,74 @@ $predikat_sosial = predikat_label($komsi['nilaisos']);
   <!-- akhir page 2 -->
   
   <!-- page 3 -->
+  <div style="page-break-after: always;">
+  '.header_identitas($hsis['kelas_dapodik'], $sem, $hsis['nama'], $ata['tahun'], $hsis['nisn'], $hsis['nis']).'
+    <table class="nilai" style="font-size:12px; width: 100%">
+      <tr class="text-center" style="font-weight: bold">
+        <td width="2%" rowspan="2">NO</td>
+        <td rowspan="2" width="18%">Mata Pelajaran</td>
+        <td rowspan="2" width="2%">KKM</td>
+        <td colspan="3">Keterampilan</td>
+      </tr>
+      <tr class="text-center" style="font-weight: bold">
+        <td width="3%">Nilai</td>
+        <td width="5%">Predikat</td>
+        <td>Deskripsi</td>
+      </tr>';
+  $ex=mysqli_query($con,"SELECT * FROM kategori_mapel order by posisi asc ");
+  $romawi= 1;
+  $allnilsmkir= array();
+  $allnilket= array();
+  $vr=1;
+  while($hex=mysqli_fetch_array($ex)){ 
+    $pel=mysqli_query($con,"SELECT *,(SELECT sum(nilai) FROM nilaiuh where c_ta='$c_ta' and c_siswa='$smk[c_siswa]' and c_kelas='$kel[c_kelas]' and c_mapel=mapel_kelas.c_mapel) as nilaiuh,(SELECT sum(nilai) FROM nilaitugas where c_ta='$c_ta' and c_siswa='$smk[c_siswa]' and c_kelas='$kel[c_kelas]' and c_mapel=mapel_kelas.c_mapel) as nilaitugas,(SELECT nilai FROM nilaimid where c_ta='$c_ta' and c_siswa='$smk[c_siswa]' and c_kelas='$kel[c_kelas]' and c_mapel=mapel_kelas.c_mapel) as nilaimid,(SELECT nilai FROM nilaiuas where c_ta='$c_ta' and c_siswa='$smk[c_siswa]' and c_kelas='$kel[c_kelas]' and c_mapel=mapel_kelas.c_mapel) as nilaiuas,(SELECT avg(nilai) FROM nilaiket where c_ta='$c_ta' and c_siswa='$smk[c_siswa]' and c_kelas='$kel[c_kelas]' and c_mapel=mapel_kelas.c_mapel) as nilaiket,(select mapel from mapel where c_mapel=mapel_kelas.c_mapel) as mapel,(select mapel from mapel where c_mapel=mapel_kelas.c_mapel) as mapel,(select sl from mapel where c_mapel=mapel_kelas.c_mapel) as sl FROM mapel_kelas where c_kelas='$kel[c_kelas]' and c_katmapel='$hex[c_katmapel]' order by no asc ");
+    $vr=1;
+    if(mysqli_num_rows($pel)>0){
+       $content.= '<tr><td colspan="6"><b>'.$hex['katmapel'].'</b></td>';
+        
+      $content.= '';
+      foreach($pel as $hpel){
+        require '../view/rumus/nilairapot.php';
+        $predikat = predikattambahan($hpel['nilaiket'],$hpel['sl']);
+        $deskripsi=mysqli_fetch_array(mysqli_query($con,"SELECT * FROM deskripsi_mapel where c_ta='$c_ta'and c_mapel='$hpel[c_mapel]' and predikat = '$predikat'"));
+        $content.='<tr class="text-center">';
+        $content.='<td>'.$vr.'</td>';
+        $content.='<td class="text-left">'.$hpel['mapel'].'</td>';
+        $content.='<td><b>'.$hpel['sl'].'</b></td>';
+        $content.='<td>'.koma($hpel['nilaiket']).'</td>';
+        $content.='<td>'.$predikat.'</td>';
+        $content.='<td class="text-left" style="text-align:justify;">'.$deskripsi['des_ket'].'</td>';
+        $content.='</tr>';
+        $vr++;
+        $allnilsmkir[]= $nilsmkir;
+        $allnilket[]= $hpel['nilaiket'];
+      }
+    }
+  $romawi++;
+  }
+
+  $content.='
+  </table>
+  <table style="font-size:12px; width: 100%; margin-top: 20px" >
+        <tr>
+          <td width="70%"></td>
+          <td>
+            <div>'.$titimangsa.'</div>
+            <div>Wali Kelas,</div>
+            <div style="height: 70px"></div>
+            <div class="nama">'.$hsis['walas_dapodik'].'</div>
+            <div>NIP.</div>
+          </td>
+        </tr>
+    </table>
+  </div>
+  <!-- akhir page 3 -->
   ';
   $content.='
-  <div>
-  <b style="font-size: 12px;">C. EKSTRAKURIKULER</b><br>
-  <table class="nilai" style="font-size:11px; width: 100%; margin-top: 10px; margin-bottom: 10px;">';
+  <div style="page-break-after: always;">
+  '.header_identitas($hsis['kelas_dapodik'], $sem, $hsis['nama'], $ata['tahun'], $hsis['nisn'], $hsis['nis']).'
+   <b style="font-size: 12px;">C. EKSTRAKURIKULER</b><br>
+    <table class="nilai" style="font-size:11px; width: 100%">';
       $extra= mysqli_query($con,"SELECT * FROM nilaiextra left join extra on(nilaiextra.c_extra=extra.c_extra) where c_siswa='$smk[c_siswa]' and c_kelas='$kel[c_kelas]' and c_ta='$c_ta'");
       if($extra==null){
         $content.= '<tr><td>-</td></tr>';
@@ -237,10 +312,8 @@ $predikat_sosial = predikat_label($komsi['nilaisos']);
         <tr class="text-center" style="font-weight: bold">
           <td width="2%">No</td>
           <td width="30%">Kegiatan Ekstrakurikuler</td>
-          <td width="10%">Predikat</td>
-          <td>Keterangan</td>
-        </tr>
-        ';
+          <td width="10%">Nilai</td><td>Keterangan</td>
+        </tr>';
         $no= 1;
         while($hextra= mysqli_fetch_array($extra)){
           $content.= '
@@ -248,40 +321,55 @@ $predikat_sosial = predikat_label($komsi['nilaisos']);
             <td class="text-center">'.$no.'</td><td>'.$hextra['extra'].'</td><td class="text-center">'.$hextra['nilai'].'</td><td>'.$hextra['deskripsi'].'</td>
           </tr>';
         $no++; }
-        if($no<2){
-          $content.='
-          <tr><td>1</td><td></td><td></td><td></td></tr>
-          <tr><td>2</td><td></td><td></td><td></td></tr>
-          ';
-        }
       }
     $content.= '
     </table>
+    <br>
+    <b style="font-size: 12px;">D. PRESTASI</b><br>
+    <table class="nilai" style="font-size:11px; width: 100%">
+        <tr class="text-center" style="font-weight: bold">
+          <td width="2%">No</td>
+          <td width="30%">Prestasi</td>
+          <td>Keterangan</td>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td">3</td>
+            <td></td>
+            <td></td>
+        </tr>
+    </table>
     ';
     $setra= mysqli_fetch_array(mysqli_query($con,"SELECT * FROM rapotsiswa where c_ta='$c_ta' and c_siswa='$smk[c_siswa]' and c_kelas='$kel[c_kelas]' limit 1 "));
-    $sakit = $setra['s']??0;
-    $izin = $setra['i']??0;
-    $alpha = $setra['a']??0;
     $content.='
-    <b style="font-size: 12px;">D. KETIDAKHADIRAN</b><br>
-    <table class="nilai" style="font-size:11px; width: 100%; margin: 10px 0;">
-    <tr>
-    <td width="20%">Sakit</td>
-    <td width="20%">'.$sakit.' hari</td>
-  </tr>
-  <tr>
-    <td width="20%">Izin</td>
-    <td width="20%">'.$izin.' hari</td>
-  </tr>
-  <tr>
-    <td width="20%">Tanpa Keterangan</td>
-    <td width="20%">'.$alpha.' hari</td>
+    <b style="font-size: 12px;">F. KETIDAKHADIRAN</b><br>
+    <table class="nilai" style="font-size:11px; width: 100%;">
+      <tr>
+        <td width="35%">SAKIT (S)</td>
+        <td>'.$setra['s'].' hari</td>
+      </tr>
+      <tr>
+        <td width="35%">IZIN (I)</td>
+        <td>'.$setra['i'].' hari</td>
+      </tr>
+      <tr>
+        <td width="35%">ALFA (A)</td>
+        <td>'.$setra['a'].' hari</td>
       </tr>';
       $content.='
     </table>';
     $content.='
-    <b style="font-size: 12px;">E. CATATAN WALI KELAS</b><br>
-    <table class="nilai" style="font-size:11px; width: 100%; margin: 10px 0;">
+    <b style="font-size: 12px;">G. CATATAN WALI KELAS</b><br>
+    <table class="nilai" style="font-size:11px; width: 100%;">
       <tr>';
       if($setra==NULL){
         $content.= '<td valign="top">-</td>';
@@ -291,7 +379,15 @@ $predikat_sosial = predikat_label($komsi['nilaisos']);
       $content.='  
       </tr>
     </table>';
-
+    
+    $content.='
+    <b style="font-size: 12px;">H. TANGGAPAN ORANGTUA/WALI</b><br>
+    <table class="nilai" style="font-size:11px; width: 100%;">
+      <tr>
+        <td><br><br><br></td> 
+      </tr>
+    </table>
+    ';
     
     if ($ata['semester']=='2') {
       $content.=$break.'
@@ -319,7 +415,7 @@ $predikat_sosial = predikat_label($komsi['nilaisos']);
             <div>'.$titimangsa.'</div>
             <div>Wali Kelas,</div>
             <div style="height: 70px"></div>
-            <div class="nama">'.$guru['nama'].'</div>
+            <div class="nama">'.$hsis['walas_dapodik'].'</div>
             <div>NIP.</div>
           </td>
         </tr>
@@ -343,5 +439,5 @@ $predikat_sosial = predikat_label($komsi['nilaisos']);
     // if ($angkatan[0] == 'VII') {
     //   $content.='</div>';
     // }
-    $footer = $kel['kelas'].'  |  '.strtoupper($hsis['nama']).'  |  '.$hsis['nisn'];
+    $footer = $hsis['kelas_dapodik'].'  |  '.strtoupper($hsis['nama']).'  |  '.$hsis['nisn'];
 ?>

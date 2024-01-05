@@ -1,7 +1,7 @@
       <div class="row">
         <div class="col-xs-12 col-md-12 col-lg-12">
           <?php if(isset($_SESSION['pesan']) && $_SESSION['pesan']=='selesai'){?>
-          <div style="display: none;" class="alert alert-success alert-dismissable"><?= $_SESSION['pesan_panjang'] ?>
+          <div style="display: none;" class="alert alert-success alert-dismissable">Kompetensi Sikap Disimpan Ke Database
              <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
           </div>
           <?php } if(isset($_SESSION['pesan']) && $_SESSION['pesan']=='ulang'){?>
@@ -13,47 +13,36 @@
             <div class="box-header with-border">
             <h3 class="box-title"> <i class="glyphicon glyphicon-user"></i> Kompetensi Sikap Siswa Kelas <?php echo $kel['kelas']; ?></h3>
             </div>
-            <form action="<?php echo $basewa; ?>a-walikelas/<?php echo md5('simpankompetensisikapnew'); ?>/access" method="post">
+            <form action="<?php echo $basewa; ?>a-walikelas/<?php echo md5('simpankompetensisikap'); ?>/access" method="post">
             <input type="hidden" name="c_kelas" value="<?php echo $kel['c_kelas']; ?>">
-            <input type="hidden" name="c_siswa" value="<?php echo $kel['c_kelas']; ?>">
             <!-- /.box-header -->
             <div class="box-body table-responsive">
               <table id="" class="table table-bordered table-hover">
-                <?php 
-                $angkatan = explode(" ",$kel['kelas']);
-                $smk=mysqli_query($con,"SELECT * FROM kompetensi_sikap where kompetensi_sikap.c_ta='$c_ta' and kompetensi_sikap.angkatan='$angkatan[0]'"); $vr=1;while($ulang=mysqli_fetch_array($smk)){$akh=$ulang;} ?>                
-                  <tbody>
-                    <tr>
-                    <input type="hidden" name="angkatan" value="<?php echo $angkatan[0]; ?>">
-                    <th>Angkatan</th>
-                    <td><?php echo $angkatan[0]; ?></td>
-                  </tr>
-                  <tr>
-                    <th>Beriman...</th>
-                    <td><textarea name="spiritual" class="form-control" style="width:100%;"><?php echo $akh['spiritual']; ?></textarea></td>
-                  </tr>
-                  <tr>
-                    <th>Berkebinekaan...</th>
-                    <td><textarea name="sosial" class="form-control" style="width:100%;"><?php echo $akh['sosial']; ?></textarea></td>
-                  </tr>
-                  <tr>
-                    <th>Bergotong...</th>
-                    <td><textarea name="akhlak" class="form-control" style="width:100%;"><?php echo $akh['akhlak']; ?></textarea></td>
-                  </tr>
-                  <tr>
-                    <th>Mandiri</th>
-                    <td><textarea name="nilaispi" class="form-control" style="width:100%;"><?php echo $akh['nilaispi']; ?></textarea></td>
-                  </tr>
-                  <tr>
-                    <th>Bernalar...</th>
-                    <td><textarea name="nilaisos" class="form-control" style="width:100%;"><?php echo $akh['nilaisos']; ?></textarea></td>
-                  </tr>
-                  <tr>
-                    <th>Kreatif</th>
-                    <td><textarea name="nilaiakh" class="form-control" style="width:100%;"><?php echo $akh['nilaiakh']; ?></textarea></td>
-                  </tr>
-<?php 
-// $vr++; } ?>
+                <thead>
+                <tr>
+                  <th width="5%">NO</th>
+                  <th>NAMA</th>
+                  <th width="10%">Predikat Spiritual</th>
+                  <th>Ket Spiritual</th>
+                  <th width="10%">Predikat Sosial</th>
+                  <th>Ket Sosial</th>
+                  <th width="10%">Predikat Akhlak</th>
+                  <th>Ket Akhlak</th>
+                </tr>
+                </thead>
+                <tbody>
+<?php $smk=mysqli_query($con,"SELECT * FROM siswa left join kompetensi_sikap on (siswa.c_siswa=kompetensi_sikap.c_siswa and kompetensi_sikap.c_ta='$c_ta') where siswa.c_kelas='$kel[c_kelas]' order by nama asc "); $vr=1;while($akh=mysqli_fetch_array($smk)){ ?>                
+                <tr>
+                  <td><?php echo $vr; ?></td>
+                  <td><?php echo $akh['nama']; ?></td>
+                  <td><input type="text" name="nilaispi[]" value="<?php echo $akh['nilaispi']; ?>" class="form-control" style="width:100%;"></td>
+                  <td><textarea name="spiritual[]" class="form-control" style="width:100%;"><?php echo $akh['spiritual']; ?></textarea></td>
+                  <td><input type="text" name="nilaisos[]" value="<?php echo $akh['nilaisos']; ?>" class="form-control" style="width:100%;"></td>
+                  <td><textarea name="sosial[]" class="form-control" style="width:100%;"><?php echo $akh['sosial']; ?></textarea></td>
+                  <td><input type="text" name="nilaiakh[]" value="<?php echo $akh['nilaiakh']; ?>" class="form-control" style="width:100%;"></td>
+                  <td><textarea name="akhlak[]" class="form-control" style="width:100%;"><?php echo $akh['akhlak']; ?></textarea></td>
+                </tr>
+<?php $vr++; } ?>
                 </tbody>
               </table>
             </div>
