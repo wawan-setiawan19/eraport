@@ -207,18 +207,6 @@ $predikat_sosial = predikat_label($komsi['nilaisos']);
   }
   $content.='
   </table>
-  <table style="font-size:12px; width: 100%; margin-top: 20px" cellpadding="5">
-        <tr>
-          <td width="70%"></td>
-          <td>
-            <div>'.$titimangsa.'</div>
-            <div>Wali Kelas,</div>
-            <div style="height: 70px"></div>
-            <div class="nama">'.$guru['nama'].'</div>
-            <div>NIP.</div>
-          </td>
-        </tr>
-    </table>
   </div>
   <!-- akhir page 2 -->
   
